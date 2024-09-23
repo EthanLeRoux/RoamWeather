@@ -1,0 +1,39 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 07 Aug 2024, 20:07:04
+    Author     : ethan
+*/
+
+/* Style for the ListView */
+.list-view {
+    -fx-background-color: #f0f0f0;
+    -fx-border-color: #d0d0d0;
+    -fx-border-width: 1px;
+    -fx-border-radius: 20px;
+}
+
+/* Style for ListView cells */
+.list-cell {
+    -fx-background-color: #ffffff;
+    -fx-padding: 10px;
+    -fx-text-fill: #333333;
+    -fx-font-size: 14px;
+    -fx-border-width: 0 0 2px 0;
+    -fx-border-color: #787878;
+    -fx-border-radius: 20px;
+}
+
+.list-cell:filled:selected {
+    -fx-background-color: #787878;
+    -fx-text-fill: #000000;-fx-border-radius: 20px;
+    
+}
+
+.list-cell:filled:hover {
+    -fx-background-color: #e0e0e0;
+    -fx-text-fill: #000000;
+    -fx-border-radius: 20px;
+}
