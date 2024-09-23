@@ -1,0 +1,123 @@
+
+/* Styling for Buttons */
+/*#btnPost, #btnShowPosts, #btnUpdatePost, #btnDeletePost {
+    -fx-background-color: #3498db;  Blue background 
+    -fx-text-fill: white;           White text 
+    -fx-font-size: 16px;            Font size 
+    -fx-border-radius: 5px;         Rounded corners 
+    -fx-background-radius: 5px;
+    -fx-border-color: #2980b9;      Border color 
+    -fx-border-width: 2px;
+    -fx-padding: 10px;
+}*/
+.menu-button > .arrow-button {
+    -fx-padding: 0;
+}
+
+.menu-button > .arrow-button > .arrow {
+    -fx-padding: 0;
+}
+
+/* Styling for MenuButton */
+#menuBtn {
+    -fx-background-color:  #0b76ab;  
+/*    -fx-text-fill: white;           White text */
+/*    -fx-font-size: 14px;            Font size */
+/*    -fx-border-radius: 5px;         Rounded corners 
+    -fx-background-radius: 5px;
+    -fx-border-color: #1a3845;      Border color 
+    -fx-border-width: 2px;*/
+    -fx-border: none;
+}
+
+Button {
+    -fx-background-color:  #0b76ab; /* Blue background */
+    -fx-text-fill: white;          /* White text */
+    -fx-padding: 5px;
+}
+
+/* Styling for TextArea */
+#txtPost {
+/*    -fx-background-color: #ecf0f1;  Light grey background */
+    -fx-border-color: #bdc3c7;     /* Grey border */
+    -fx-border-radius: 5px;        /* Rounded corners */
+}
+
+/* Styling for Label */
+#lblPosts {
+    -fx-text-fill: #2c3e50;  /* Dark grey text */
+    -fx-font-size: 24px;     /* Font size */
+    -fx-font-weight: bold;   /* Bold font */
+}
+/* Styling for ListView */
+#listPosts {
+    -fx-background-color: #f5f5f5;  /* Light grey background */
+    -fx-border-color: #7f8c8d;      /* Grey border */
+    -fx-border-radius: 5px;         /* Rounded corners */
+    -fx-background-radius: 5px;
+    -fx-padding: 10px;              /* Padding */
+    -fx-font-size: 14px;            /* Font size */
+}
+
+/* Styling for individual ListCells (items in the ListView) */
+.list-cell {
+    -fx-background-color: #ecf0f1;  /* Light grey background for cells */
+    -fx-text-fill: #2c3e50;         /* Dark grey text color */
+    -fx-padding: 10px;              /* Padding inside cells */
+    -fx-font-size: 14px;            /* Font size */
+    -fx-border-color: #bdc3c7;      /* Border color for the cells */
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;         /* Slightly rounded corners for the cells */
+}
+
+.list-cell:hover {
+    -fx-background-color: #bdc3c7;  /* Hover effect with darker grey background */
+    -fx-text-fill: #ffffff;         /* White text when hovered */
+}
+
+/* Styling for selected ListCells */
+.list-cell:selected {
+    -fx-background-color: #3498db;  /* Blue background for selected cells */
+    -fx-text-fill: white;           /* White text when selected */
+}
+
+
+/* Styling for HBox (Menu bar) */
+#hboxMenu {
+    -fx-background-color: #0b76ab; /* Background color */
+    -fx-padding: 10px;             /* Padding */
+    -fx-spacing: 50px;             /* Spacing between children */
+}
+
+/* Styling for MenuButton */
+#menuBtn {
+    -fx-background-color: #0b76ab;  
+    -fx-border: none;
+    -fx-background-image: url("../resources/menu_icon.png");
+}
+
+#menuBtn:hover {
+    -fx-background-color: #2b5063;
+}
+
+/* Styling for MenuItems */
+.menu-item {
+    -fx-background-color: #ecf0f1; /* Light grey background */
+    -fx-text-fill: #2c3e50;        /* Dark text */
+    -fx-font-size: 14px;           /* Font size */
+}
+
+.menu-item:hover {
+    -fx-background-color: #7ab1ce; /* Hover effect with darker grey background */
+}
+
+#imgLogo{
+    
+}
+
+#txtSearch{
+/*    -fx-border-width: 2px;           Set the border width */
+    -fx-border-radius: 30px;         /* Set rounded corners */
+    -fx-background-radius: 30px;
+    -fx-alignment: CENTER;
+}
