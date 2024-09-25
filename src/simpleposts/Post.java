@@ -10,7 +10,7 @@ import java.sql.Timestamp;
  *
  * fx-id
  * initialization
- * not beingrefernced by opbject
+ * not being refernced by opbject
  * 
  * @author ethan
  */
@@ -18,9 +18,18 @@ import java.sql.Timestamp;
 public class Post {
     private int postUserId;
     private int postId;
+    private String postUserName;
     private String postContent;
     private String createdAt;
     private String updatedAt;
+
+    public String getPostUserName() {
+        return postUserName;
+    }
+
+    public void setPostUserName(String postUserName) {
+        this.postUserName = postUserName;
+    }
             
     
     public Post(int postUserId, String postContent) {
@@ -28,11 +37,35 @@ public class Post {
         this.postContent = postContent;
     }
 
+    public Post(int postUserId, String postUserName, String postContent) {
+        this.postUserId = postUserId;
+        this.postUserName = postUserName;
+        this.postContent = postContent;
+    }
+    
+    
+
     public Post(int postId, int postUserId,String postContent, String createdAt, String updatedAt) {
         this.postUserId = postUserId;
         this.postId = postId;
         this.postContent = postContent;
         this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
     }
     
@@ -60,6 +93,11 @@ public class Post {
    public String postConstructToString() {
         return "Post{" + "postUserId=" + postUserId + ", postId=" + postId + ", postContent=" + postContent + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + '}';
     }
+   
+   public String toStringWithUserName() {
+        return postUserName +"\n" +
+               postContent;
+    }        
     
    public String toStringForListView() {
         return "POST ID: " + postId + "\n" +
