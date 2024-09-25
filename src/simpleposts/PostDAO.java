@@ -78,7 +78,30 @@ public class PostDAO {
             return columnValues;
 
 }
-     
+        
+public int getPostIdByUsernameAndContent(String username, String postContent) throws SQLException {
+    String sql = "SELECT p.post_id " +
+                 "FROM posts p " +
+                 "JOIN users u ON p.user_id = u.user_id " +
+                 "WHERE u.user_name = '" + username + "' " +
+                 "AND p.post_content = '" + postContent + "'";
+    
+    conn = new DBConnection();
+    stmt = conn.getConn().createStatement();
+    ResultSet rs = stmt.executeQuery(sql);
+    
+    int postId = -1;  // Default value if no matching post is found
+    if (rs.next()) {
+        postId = rs.getInt("post_id");
+    }
+
+    rs.close();
+    stmt.close();
+    conn.getConn().close();
+
+    return postId;  // Return the post ID or -1 if not found
+}
+ 
         public void deletePostById(int postId) throws SQLException{
             conn = new DBConnection();
             stmt = conn.getConn().createStatement();

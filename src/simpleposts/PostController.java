@@ -74,27 +74,25 @@ Button btnDeletePost;
     
     public void initialize() throws SQLException{
         showPosts();
-        TranslateGeneral tg = new TranslateGeneral();
-//Image image = new Image(getClass().getResource("/resources/menu_icon.png").toExternalForm());
-        //ImageView imageView = new ImageView(image);
-        //menuBtn.setGraphic(imageView);
-        //hboxMenu.setSpacing(50);
-// Translate Buttons and Labels to Japanese
-//btnPost.setText(tg.translate(Language.JAPANESE, btnPost.getText()));
-//btnShowPosts.setText(tg.translate(Language.JAPANESE, btnShowPosts.getText()));
-//lblPosts.setText(tg.translate(Language.JAPANESE, lblPosts.getText()));
-//btnUpdatePost.setText(tg.translate(Language.JAPANESE, btnUpdatePost.getText()));
-//btnDeletePost.setText(tg.translate(Language.JAPANESE, btnDeletePost.getText()));
-
-
     }
         
 public void showPosts() throws SQLException {
         pdao = new PostDAO();
+        udao = new DbDAO();
+        
         posts = pdao.getAllPosts();
         listPosts.getItems().clear(); // Clear existing items
+        
         for (Post post : posts) {
-            listPosts.getItems().add(post.toStringForListView());
+            //listPosts.getItems().add(post.toStringForListView());
+            String postUsername = udao.getUserName(post.getPostUserId());
+            post.setPostUserName(postUsername);
+            
+            if(post.getUpdatedAt()!=null){
+                listPosts.getItems().add(post.toStringWithUserName() + "\n" +"Edited At: "+post.getUpdatedAt());
+            }
+            
+            listPosts.getItems().add(post.toStringWithUserName() + "\n" +post.getCreatedAt());
         }
     }
     
@@ -111,42 +109,63 @@ public void addPost() throws FileNotFoundException, IOException, SQLException{
 
             // Add the post to the database
             pdao.addPost(userId, postContent);
-
+            String username = udao.getUserName(userId);
             // Create a new Post object
-            Post newPost = new Post(userId, postContent);
-
+            Post newPost = new Post(userId,username, postContent);
+            //newPost.setPostUserName(udao.getUserName(userId));
+            
+            newPost.setPostUserName(username);
             // Add the new post to the ListView
-            listPosts.getItems().add(newPost.toStringForListView());
+            //listPosts.getItems().add(newPost.toStringForListView());
+            listPosts.getItems().add(newPost.toStringWithUserName());
             showPosts();
             txtPost.setText("");
-            pum.showInformationDialog("Create Post Dialog", "Post Creation", "Post has been created.");
-            
+            pum.showInformationDialog("Create Post Dialog", "Post Creation", "Post has been created.");      
+    }
+
+    public String extractBeforeNewline(String input) {
+        if (input == null) {
+            return null; // Handle null input
+        }
+        
+        int newlineIndex = input.indexOf('\n');
+        if (newlineIndex == -1) {
+            return input; // No newline found, return the entire string
+        }
+        
+        return input.substring(0, newlineIndex);
     }
     
-public int extractPostIdFromString(String postString) {
-        // Find the start index of "POST ID: "
-        String postIdPrefix = "POST ID: ";
-        int startIndex = postString.indexOf(postIdPrefix);
+    public String extractAfterNewline(String input) {
+        if (input == null) {
+                return null; // Handle null input
+            }
 
-        if (startIndex == -1) {
-            throw new IllegalArgumentException("Post string does not contain 'POST ID: '");
-        }
+            // Find the index of the first newline
+            int firstNewlineIndex = input.indexOf('\n');
+            if (firstNewlineIndex == -1) {
+                return ""; // No newline found, return an empty string
+            }
 
-        // Find the end index of the post ID
-        int endIndex = postString.indexOf('\n', startIndex);
-        if (endIndex == -1) {
-            endIndex = postString.length(); // In case there's no newline at the end
-        }
+            // Find the index of the second newline
+            int secondNewlineIndex = input.indexOf('\n', firstNewlineIndex + 1);
+            if (secondNewlineIndex == -1) {
+                return ""; // Only one newline found, return an empty string
+            }
 
-        // Extract the post ID substring
-        String postIdString = postString.substring(startIndex + postIdPrefix.length(), endIndex).trim();
+            // Extract the text between the first and second newline
+            return input.substring(firstNewlineIndex + 1, secondNewlineIndex);
+    }
 
-        // Parse the post ID to integer
-        try {
-            return Integer.parseInt(postIdString);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Post ID is not a valid integer", e);
-        }
+public int getPostIdFromUsername(String username, String content) throws SQLException, FileNotFoundException, IOException{
+    pdao = new PostDAO();
+    udao = new DbDAO();
+    fr = new FileReader("user.txt");
+    br = new BufferedReader(fr);
+    int userId = Integer.parseInt(br.readLine());
+    int postId = pdao.getPostIdByUsernameAndContent(username, content);
+    
+    return postId;
 }
 
 public void updatePost() throws SQLException, IOException{
@@ -154,16 +173,28 @@ public void updatePost() throws SQLException, IOException{
     pum = new PopUpMessage();
     fr = new FileReader("user.txt");
     br = new BufferedReader(fr);
-            
+    udao = new DbDAO();
+    
     // Get the selected post string from the ListView
     String selectedPost = listPosts.getSelectionModel().getSelectedItem();
     String newPostContent = txtPost.getText();
-    int pId = extractPostIdFromString(selectedPost);
+    
+    String username = extractBeforeNewline(selectedPost);
+    //extractAfterFirstBeforeSecondNewline
+    //String username = extractAfterFirstBeforeSecondNewline(selectedPost);        
+    String content = extractAfterNewline(selectedPost);
+    int pId = pdao.getPostIdByUsernameAndContent(username, content);
 
-    int userId = Integer.parseInt(br.readLine());
+    
+    //int pId = extractPostIdFromString(selectedPost);
+    
+ int userId = Integer.parseInt(br.readLine());
+//    String username = udao.getUserName(userId);
+//    
+//    int pId = getPostIdFromUsername(username);
     String[] post = pdao.getPostById(pId);
+    
     int postUserId = Integer.parseInt(post[1]);
-
         if(postUserId == userId){
             boolean result = pum.showConfirmationDialog("Confirmation", "Confirmation Post Update", "Do you want to update this post?");
             if (result) {
@@ -186,7 +217,10 @@ public void deletePost() throws SQLException, FileNotFoundException, IOException
     
     // Get the selected post string from the ListView
     String selectedPost = listPosts.getSelectionModel().getSelectedItem();
-    int pId = extractPostIdFromString(selectedPost);
+    
+    String username = extractBeforeNewline(selectedPost);
+    String content = extractAfterNewline(selectedPost);
+    int pId = pdao.getPostIdByUsernameAndContent(username, content);
     
     int userId = Integer.parseInt(br.readLine());
     String[] post = pdao.getPostById(pId);

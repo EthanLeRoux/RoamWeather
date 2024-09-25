@@ -89,24 +89,7 @@ public class LoginController {
     HBox hboxMenu;
             
     public void initialize() throws FileNotFoundException{
-        TranslateButtons tbtn = new TranslateButtons();
-        TranslateLabels tlbl = new TranslateLabels();
-       TranslateGeneral tg = new TranslateGeneral();
-       
-       //Menu and its Item's code
-       Image image = new Image(getClass().getResource("/resources/menu_icon.png").toExternalForm());
-        ImageView imageView = new ImageView(image);
-        menuBtn.setGraphic(imageView);
-        hboxMenu.setSpacing(50);
-        
-// Translate Labels and Buttons to Dutch
-//lblEmail.setText(tg.translate(Language.DUTCH, lblEmail.getText()));
-//lblPassword.setText(tg.translate(Language.DUTCH, lblPassword.getText()));
-//lblLogin.setText(tg.translate(Language.DUTCH, lblLogin.getText()));
-//lblNoAccountSignUp.setText(tg.translate(Language.DUTCH, lblNoAccountSignUp.getText()));
-//btnLogin.setText(tg.translate(Language.DUTCH, btnLogin.getText()));
-
-    }
+}
     
         @FXML
     public void switchSceneSignup() throws IOException{
@@ -120,7 +103,7 @@ public class LoginController {
         rs.switchScene("simepleposts/scnPosts.fxml");
     }
     
-        public void loginUser() throws SQLException, IOException{
+    public void loginUser() throws SQLException, IOException{
         String email = txtLoginEmail.getText();
         String password = txtLoginPassword.getText();
         User newUser = new User(email,password);

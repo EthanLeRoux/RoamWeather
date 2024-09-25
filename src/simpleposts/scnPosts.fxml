@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -14,16 +15,16 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@PostStyles.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="simpleposts.PostController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="simpleposts.PostController">
    <children>
       <Button fx:id="btnPost" layoutX="498.0" layoutY="319.0" mnemonicParsing="false" onAction="#addPost" prefHeight="69.0" prefWidth="79.0" stylesheets="@PostStyles.css" text="POST">
          <font>
             <Font size="17.0" />
          </font></Button>
       <TextArea fx:id="txtPost" layoutX="14.0" layoutY="319.0" prefHeight="69.0" prefWidth="479.0" />
-      <ListView fx:id="listPosts" layoutX="14.0" layoutY="96.0" prefHeight="175.0" prefWidth="567.0" stylesheets="@styles.css" />
+      <ListView fx:id="listPosts" layoutX="14.0" layoutY="96.0" prefHeight="175.0" prefWidth="567.0" stylesheets="@../resources/PostStyles.css" />
       <Button fx:id="btnShowPosts" layoutX="14.0" layoutY="286.0" mnemonicParsing="false" onAction="#showPosts" prefHeight="25.0" prefWidth="65.0" text="SHOW" />
-      <Label fx:id="lblPosts" layoutX="265.0" layoutY="61.0" prefHeight="31.0" prefWidth="65.0" text="Posts">
+      <Label fx:id="lblPosts" layoutX="265.0" layoutY="61.0" prefHeight="35.0" prefWidth="79.0" text="Forum">
          <font>
             <Font size="24.0" />
          </font>
@@ -32,13 +33,13 @@
       <Button fx:id="btnDeletePost" layoutX="181.0" layoutY="286.0" mnemonicParsing="false" onAction="#deletePost" prefHeight="25.0" prefWidth="65.0" text="DELETE" />
       <HBox fx:id="hboxMenu" alignment="CENTER" prefHeight="38.0" prefWidth="600.0" style="-fx-background-color: #0b76ab;">
          <children>
-            <ImageView fx:id="imgLogo" fitHeight="39.0" fitWidth="244.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgLogo" fitHeight="40.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" smooth="false">
                <image>
-                  <Image url="@../resources/cccc.png" />
+                  <Image url="@../resources/resizedTransparentLogo1.png" />
                </image>
             </ImageView>
             <TextField fx:id="txtSearch" />
-            <MenuButton fx:id="menuBtn" mnemonicParsing="false" stylesheets="@PostStyles.css">
+            <MenuButton fx:id="menuBtn" mnemonicParsing="false">
                <items>
                   <MenuItem mnemonicParsing="false" text="Profile" />
                   <MenuItem mnemonicParsing="false" text="Settings" />
@@ -54,4 +55,8 @@
          </padding>
       </HBox>
    </children>
+   <stylesheets>
+      <URL value="@../resources/HamburgerMenuStyles.css" />
+      <URL value="@../resources/PostStyles.css" />
+   </stylesheets>
 </AnchorPane>
