@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="643.0" prefWidth="1187.0" style="-fx-background-color: #0c76ab;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.HomePageController">
+    <stylesheets>
+        <URL value="@homepage.css" />
+    </stylesheets>
+   <children>
+      <MenuBar layoutY="1.0" prefHeight="26.0" prefWidth="1186.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Pane layoutX="256.0" layoutY="81.0" prefHeight="260.0" prefWidth="513.0" style="-fx-background-color: #79b1cf;">
+         <children>
+            <Label layoutX="17.0" layoutY="24.0" text="max" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label layoutX="14.0" layoutY="136.0" text="min" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label layoutX="181.0" layoutY="33.0" text="feels like" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label layoutX="180.0" layoutY="136.0" text="humidity" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label layoutX="349.0" layoutY="136.0" text="sunset" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label layoutX="354.0" layoutY="37.0" text="sunrise" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label fx:id="lblRise" layoutX="353.0" layoutY="57.0" text="lblRise" textFill="WHITE">
+               <font>
+                  <Font size="48.0" />
+               </font></Label>
+            <Label fx:id="lblHum" layoutX="179.0" layoutY="167.0" text="lblHum" textFill="WHITE">
+               <font>
+                  <Font size="48.0" />
+               </font></Label>
+            <Label fx:id="lblFl" layoutX="180.0" layoutY="57.0" text="lblFL" textFill="WHITE">
+               <font>
+                  <Font size="48.0" />
+               </font></Label>
+            <Label fx:id="lblMin" layoutX="14.0" layoutY="167.0" text="lblMin" textFill="WHITE">
+               <font>
+                  <Font size="48.0" />
+               </font></Label>
+            <Label fx:id="lblMax" layoutX="10.0" layoutY="57.0" text="lblMax" textFill="WHITE">
+               <font>
+                  <Font size="48.0" />
+               </font></Label>
+            <Separator layoutX="174.0" layoutY="33.0" orientation="VERTICAL" prefHeight="200.0" />
+            <Separator layoutX="343.0" layoutY="36.0" orientation="VERTICAL" prefHeight="200.0" />
+            <Label fx:id="lblSet" layoutX="353.0" layoutY="167.0" text="lblSet" textFill="WHITE">
+               <font>
+                  <Font size="48.0" />
+               </font></Label>
+         </children>
+      </Pane>
+      <Pane layoutX="791.0" layoutY="81.0" prefHeight="260.0" prefWidth="385.0" style="-fx-background-color: #79b1cf;">
+         <children>
+            <Button layoutX="163.0" layoutY="219.0" mnemonicParsing="false" onAction="#switchSceneRev" text="add review" />
+            <ListView fx:id="listReviews" layoutX="17.0" layoutY="44.0" prefHeight="170.0" prefWidth="353.0" />
+            <Label layoutX="17.0" layoutY="14.0" text="City Review" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Pane layoutX="14.0" layoutY="349.0" prefHeight="282.0" prefWidth="1160.0" style="-fx-background-color: #79b1cf;">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="5 Day Forecast" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblDay1" layoutX="4.0" layoutY="41.0" text="0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Separator layoutX="236.0" layoutY="58.0" orientation="VERTICAL" prefHeight="200.0" />
+            <Label fx:id="lblDay5" layoutX="964.0" layoutY="48.0" text="0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblDay4" layoutX="712.0" layoutY="46.0" text="0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Separator layoutX="956.0" layoutY="56.0" orientation="VERTICAL" prefHeight="200.0" />
+            <Label fx:id="lblDay3" layoutX="478.0" layoutY="48.0" text="0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Separator layoutX="704.0" layoutY="64.0" orientation="VERTICAL" prefHeight="200.0" />
+            <Label fx:id="lblDay2" layoutX="251.0" layoutY="47.0" text="0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Separator layoutX="471.0" layoutY="54.0" orientation="VERTICAL" prefHeight="200.0" />
+         </children></Pane>
+      <Pane layoutX="14.0" layoutY="81.0" prefHeight="260.0" prefWidth="234.0" style="-fx-background-color: #79b1cf;">
+         <children>
+            <Label layoutX="15.0" layoutY="14.0" text="Today" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label fx:id="lblTemp" layoutX="12.0" layoutY="42.0" prefHeight="70.0" prefWidth="211.0" text="0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="48.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblDate" layoutX="75.0" layoutY="14.0" text="lblDate" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label fx:id="lblCity" layoutX="14.0" layoutY="112.0" text="lblCity" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label fx:id="lblDesc" layoutX="12.0" layoutY="139.0" text="description" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Separator layoutX="17.0" layoutY="102.0" prefHeight="10.0" prefWidth="200.0" />
+            <ImageView fx:id="icon" fitHeight="54.0" fitWidth="68.0" layoutX="17.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Cavani%2321/CPUT/second%20year/PRT/pngtree-vector-cloud-icon-png-image_939423.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <HBox alignment="CENTER" layoutX="425.0" layoutY="30.0" prefHeight="54.0" prefWidth="349.0">
+         <children>
+            <TextField fx:id="txtCity" alignment="BOTTOM_CENTER" onAction="#today" prefHeight="24.0" prefWidth="288.0" />
+          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#today" text="search" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
