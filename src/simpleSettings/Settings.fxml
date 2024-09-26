@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="341.0" prefWidth="473.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="simpleSettings.SettingController">
+   <AnchorPane prefHeight="414.0" prefWidth="474.0">
+      <children>
+          <Button fx:id="darkBtn" layoutX="211.0" layoutY="72.0" onAction="#handleDarkButtonAction" prefHeight="18.0" prefWidth="80.0" text="Dark Theme" />
+          <Button fx:id="lightBtn" layoutX="327.0" layoutY="72.0" onAction="#handleLightButtonAction" text="Light Theme" />
+         <Label fx:id="themeLbl" layoutX="39.0" layoutY="71.0" prefHeight="26.0" prefWidth="102.0" text="Theme:">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Label>
+         <Label layoutX="39.0" layoutY="148.0" text="Measuring Units">
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font>
+         </Label>
+         <RadioButton fx:id="btnImp" layoutX="211.0" layoutY="150.0" mnemonicParsing="false" text="Imperial" />
+         <RadioButton fx:id="btnMetric" layoutX="327.0" layoutY="150.0" mnemonicParsing="false" text="Metric" />
+         <Label layoutX="39.0" layoutY="218.0" text="Languages">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <!-- Replaced TextField with ComboBox -->
+         <ComboBox fx:id="comboLang" layoutX="217.0" layoutY="216.0" prefHeight="26.0" prefWidth="197.0" />
+         <Button fx:id="savebtn" layoutX="173.0" layoutY="279.0" mnemonicParsing="false" onAction="#handleSaveButton" prefHeight="26.0" prefWidth="102.0" text="save">
+            <font>
+               <Font name="Arial" size="14.0" />
+            </font>
+         </Button>
+      </children>
+   </AnchorPane>
+</VBox>

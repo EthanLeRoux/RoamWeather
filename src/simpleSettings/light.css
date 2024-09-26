@@ -1,0 +1,53 @@
+/* Root Background */
+.root {
+    -fx-background-color: #f0f8ff;  /* Light blue background */
+    -fx-text-fill: #2e4053;  /* Dark gray text */
+}
+
+/* Buttons */
+.button {
+    -fx-background-color: linear-gradient(#4CAF50, #45A049);  /* Vibrant green button */
+    -fx-text-fill: #ffffff;  /* White text */
+    -fx-border-color: #388E3C;  /* Green border */
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 8 15;
+    -fx-font-weight: bold;
+}
+
+/* Button Hover Effect */
+.button:hover {
+    -fx-background-color: #388E3C;  /* Darker green on hover */
+}
+
+/* Labels */
+.label {
+    -fx-text-fill: #2e4053;  /* Dark gray for label text */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+/* TextField */
+.text-field {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #87CEFA;  /* Sky blue border */
+    -fx-text-fill: #2e4053;  /* Dark gray text */
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+}
+
+/* TextField Focus */
+.text-field:focused {
+    -fx-border-color: #1E90FF;  /* Royal blue border on focus */
+}
+
+/* RadioButton Text */
+.radio-button .text {
+    -fx-text-fill: #E0E0E0;  /* Light gray text */
+}
+
+/* RadioButton Circle */
+.radio-button .radio {
+    -fx-mark-color: #255BCC;  /* Blue radio mark */
+}
+
