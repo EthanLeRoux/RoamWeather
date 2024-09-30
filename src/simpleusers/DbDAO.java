@@ -93,6 +93,20 @@ public class DbDAO {
         primaryStage.setScene(scn);
     }
     
+    public String getUserName(int userId) throws SQLException {
+    String sql = "SELECT user_name FROM users WHERE user_id = " + userId;
+    String username = null;
+    conn = new DBConnection();
+    Statement stmt = conn.getConn().createStatement();
+    ResultSet rs = stmt.executeQuery(sql);
+
+            if (rs.next()) {
+                username = rs.getString("user_name");
+            } else {
+                System.out.println("No user found with ID: " + userId);
+            }
+            return username;
+} 
     
     public boolean doesUserNameExist(String userName) throws SQLException {
         conn = new DBConnection();
