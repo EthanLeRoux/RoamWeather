@@ -11,8 +11,9 @@
       <TextField fx:id="txtLoginPassword" layoutX="354.0" layoutY="209.0" prefHeight="39.0" prefWidth="221.0" />
       <Label fx:id="lblEmail" layoutX="278.0" layoutY="128.0" text="Email" />
       <Label fx:id="lblPassword" layoutX="278.0" layoutY="220.0" text="Password" />
-      <Button fx:id="btnLogin" layoutX="439.0" layoutY="298.0" mnemonicParsing="false" onAction="#loginUser" text="Login" wrapText="true" />
+      <Button fx:id="btnLogin" layoutX="440.0" layoutY="312.0" mnemonicParsing="false" onAction="#loginUser" text="Login" wrapText="true" />
       <Label fx:id="lblLogin" layoutX="448.0" layoutY="77.0" text="Login" />
       <Label fx:id="lblNoAccountSignUp" layoutX="408.0" layoutY="269.0" onMouseClicked="#switchSceneSignup" text="No Account? Sign Up" textFill="#1a8be1" underline="true" />
+      <Label fx:id="lblForgotPassword" layoutX="408.0" layoutY="286.0" onMouseClicked="#switchSceneForgotPassword" text="Forgot Password?" textFill="#1a8be1" underline="true" />
    </children>
 </AnchorPane>

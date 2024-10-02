@@ -33,6 +33,7 @@ public class LoginController {
     DbDAO dao;
     Stage stage;
     Scene scene;
+    
     BufferedWriter bw;
     FileWriter fw;
     RunSimpleUsers rsu;
@@ -65,6 +66,9 @@ public class LoginController {
     Label lblSwitchSceneLogin;
 
     @FXML
+    Label lblForgotPassword;
+    
+    @FXML
     Label lblAlreadyHaveAccount;
     
     @FXML
@@ -94,13 +98,20 @@ public class LoginController {
         @FXML
     public void switchSceneSignup() throws IOException{
         RunSimpleUsers rs = new RunSimpleUsers();
-        rs.switchScene("signup.fxml");
+        rs.switchScene("/simpleusers/signup.fxml");
+    }
+    
+     @FXML
+    public void switchSceneForgotPassword() throws IOException{
+        RunSimpleUsers rs = new RunSimpleUsers();
+        rs.switchScene("/simpleForgotPassword/ForgotPassword.fxml");
     }
     
     @FXML
     public void switchScenePosts() throws IOException{
         RunSimpleUsers rs = new RunSimpleUsers();
-        rs.switchScene("simepleposts/scnPosts.fxml");
+        //rs.switchScene("simepleposts/scnPosts.fxml");
+        rs.switchScene("home/HomePage.fxml");
     }
     
     public void loginUser() throws SQLException, IOException{
@@ -116,7 +127,7 @@ public class LoginController {
             
             this.saveUserSess(foundUser);
             rsu = new RunSimpleUsers();
-            rsu.switchScene("/simpleposts/scnPosts.fxml");
+            rsu.switchScene("/home/HomePage.fxml");
         }
                 
         else{

@@ -4,6 +4,7 @@
  */
 package simpleusers;
 
+import favourites.PopUpMessages;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,11 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-//import simpletranslations.TranslateGeneral;
-import weather.DbDAO;
-import weather.RunSimpleUsers;
-import weather.User;
-//import space.dynomake.libretranslate.Language;
+
 /**
  *
  * @author Bruneez
@@ -34,17 +31,15 @@ public class SignUpController {
     FileWriter fw;
     RunSimpleUsers rsu;
     
- 
-
     @FXML
     TextField txtUserName;
 
     @FXML
-    private PasswordField txtUserPassword;
+    private TextField txtUserPassword;
     
     
     @FXML
-    private PasswordField conPassText;
+    private TextField conPassText;
     
     
     @FXML
@@ -76,10 +71,10 @@ public class SignUpController {
       
     public void initialize(){
         // Load the GIF image from resources
-        Image image = new Image("file:/C:/Users/Bruneez/OneDrive/M%20y%20website/OneDrive/Documents/NetBeansProjects/Weather/weather.jpg");
+        //Image image = new Image("file:/C:/Users/Bruneez/OneDrive/M%20y%20website/OneDrive/Documents/NetBeansProjects/Weather/weather.jpg");
 
         // Set the GIF image to the ImageView
-        img.setImage(image);
+        //img.setImage(image);
         
         
        // TranslateGeneral tg = new TranslateGeneral();
@@ -101,7 +96,7 @@ public class SignUpController {
         String userName = txtUserName.getText();
         String password = txtUserPassword.getText();
         String confirmpass = conPassText.getText();
-
+        
         //validate the email 
         if (email.contains("@") && email.indexOf(".") < email.indexOf("@")) {
             System.out.println("Invalid email.Please enter a valid email address.");
@@ -128,8 +123,7 @@ public class SignUpController {
         dao.insertUser(users);
         System.out.println("User added Successfully");
         RunSimpleUsers rs = new RunSimpleUsers();
-        rs.switchScene("/favourites/Favourite.fxml");
-
+        rs.switchScene("/simpleForgotPassword/ForgotPassword.fxml");
     }
     
     @FXML
@@ -138,5 +132,4 @@ public class SignUpController {
         rs.switchScene("/favourites/Favourite.fxml");
     }
     
-
 }

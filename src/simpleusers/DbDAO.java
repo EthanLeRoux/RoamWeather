@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.sql.PreparedStatement;
+import simpleForgotPassword.TwoFactorAuth;
 import simpleusers.DBConnection;
 import simpleusers.User;
 /**
@@ -21,14 +22,38 @@ import simpleusers.User;
  */
 public class DbDAO {
         private DBConnection conn;
-    
-    public void insertUser(User user) throws SQLException{
-        conn = new DBConnection();
+        TwoFactorAuth tfa;
         
-        String insert_post_stmt = "INSERT INTO users (user_email, user_name, user_password) VALUES ('"+ user.getUserEmail()+"', '" + user.getUserName()+"', '"+user.getUserPassword()+"')";
-        Statement stmt = conn.getConn().createStatement();
-        stmt.execute(insert_post_stmt);
-    }
+//    public void insertUser(User user) throws SQLException{
+//        conn = new DBConnection();
+//        tfa = new TwoFactorAuth();
+//        String key = tfa.generateSecretKey();
+//        String insert_post_stmt = "INSERT INTO users (user_email, user_name, user_password) VALUES ('"+ user.getUserEmail()+"', '" + user.getUserName()+"', '"+user.getUserPassword()+"')";
+//        Statement stmt = conn.getConn().createStatement();
+//        stmt.execute(insert_post_stmt);
+//    }
+        
+        public void insertUser(User user) throws SQLException {
+    conn = new DBConnection();
+    tfa = new TwoFactorAuth();
+    
+    // Generate the secret key
+    String key = tfa.generateSecretKey();
+    
+    // Prepare the SQL insert statement with the secret key included
+    String insert_user_stmt = "INSERT INTO users (user_email, user_name, user_password, user_key) VALUES (?, ?, ?, ?)";
+    
+    // Use PreparedStatement to prevent SQL injection and safely insert data
+    PreparedStatement pstmt = conn.getConn().prepareStatement(insert_user_stmt);
+    pstmt.setString(1, user.getUserEmail());
+    pstmt.setString(2, user.getUserName());
+    pstmt.setString(3, user.getUserPassword());
+    pstmt.setString(4, key); // Include the generated secret key
+    
+    // Execute the insert statement
+    pstmt.executeUpdate();
+}
+
     
     public void readPosts() throws SQLException{
         conn = new DBConnection();
@@ -108,6 +133,40 @@ public class DbDAO {
             return username;
 } 
     
+    public int getUserId(String email) throws SQLException {
+    String sql = "SELECT user_id FROM users WHERE user_email = ?";
+    int userId = -1;  // Initialize to -1 to indicate user not found
+    conn = new DBConnection();
+    PreparedStatement pstmt = conn.getConn().prepareStatement(sql);
+    pstmt.setString(1, email);  // Set email in the prepared statement
+    ResultSet rs = pstmt.executeQuery();
+
+    if (rs.next()) {
+        userId = rs.getInt("user_id");
+    } else {
+        System.out.println("No user found with email: " + email);
+    }
+
+    return userId;
+}
+
+    public String getUserKey(int userId) throws SQLException {
+    String sql = "SELECT user_key FROM users WHERE user_id = " + userId;
+    String userKey = null;
+    conn = new DBConnection();
+    Statement stmt = conn.getConn().createStatement();
+    ResultSet rs = stmt.executeQuery(sql);
+
+    if (rs.next()) {
+        userKey = rs.getString("user_key");
+    } else {
+        System.out.println("No user found with ID: " + userId);
+    }
+
+    return userKey;
+}
+
+    
     public boolean doesUserNameExist(String userName) throws SQLException {
         conn = new DBConnection();
     String query = "SELECT COUNT(*) FROM USERS WHERE user_name = ?";
@@ -139,4 +198,53 @@ public class DbDAO {
     }
     return false;
 }
+    
+public void updateUserPassword(int userId, String newPassword) throws SQLException {
+    conn = new DBConnection();
+    
+    // SQL update statement to change the user's password based on user_id
+    String update_password_stmt = "UPDATE users SET user_password = ? WHERE user_id = ?";
+    
+    // Use PreparedStatement to safely update the password
+    PreparedStatement pstmt = conn.getConn().prepareStatement(update_password_stmt);
+    pstmt.setString(1, newPassword);  // Set new password
+    pstmt.setInt(2, userId);          // Set user_id to identify the user
+    
+    // Execute the update statement
+    int rowsUpdated = pstmt.executeUpdate();
+    
+    if (rowsUpdated > 0) {
+        System.out.println("Password updated successfully for user ID: " + userId);
+    } else {
+        System.out.println("No user found with the ID: " + userId);
+    }
+}
+
+public String getUserEmailById(int userId) throws SQLException {
+    conn = new DBConnection();
+    String userEmail = null;  // Initialize variable to hold the email
+
+    // SQL select statement to retrieve the user's email based on user_id
+    String select_email_stmt = "SELECT user_email FROM users WHERE user_id = ?";
+    
+    // Use PreparedStatement to safely execute the query
+    PreparedStatement pstmt = conn.getConn().prepareStatement(select_email_stmt);
+    pstmt.setInt(1, userId);  // Set user_id to identify the user
+    
+    // Execute the query
+    ResultSet rs = pstmt.executeQuery();
+    
+    // Check if a result was returned
+    if (rs.next()) {
+        userEmail = rs.getString("user_email");  // Retrieve the email from the result set
+    } else {
+        System.out.println("No user found with the ID: " + userId);
+    }
+    
+    rs.close();  // Close the ResultSet
+    pstmt.close();  // Close the PreparedStatement
+    return userEmail;  // Return the user's email
+}
+
+
 }

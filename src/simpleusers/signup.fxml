@@ -8,20 +8,20 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="simpleusers.SignUpController">
    <children>
-      <TextField fx:id="txtEmail" layoutX="134.0" layoutY="115.0" prefHeight="31.0" prefWidth="293.0" />
-      <TextField fx:id="txtUserPassword" layoutX="134.0" layoutY="237.0" prefHeight="31.0" prefWidth="293.0" />
-      <TextField fx:id="txtUserName" layoutX="134.0" layoutY="170.0" prefHeight="31.0" prefWidth="293.0" />
-      <Label fx:id="lblEmail" layoutX="22.0" layoutY="116.0" text="Email">
+      <TextField fx:id="txtEmail" layoutX="236.0" layoutY="69.0" prefHeight="31.0" prefWidth="293.0" />
+      <TextField fx:id="txtUserPassword" layoutX="236.0" layoutY="191.0" prefHeight="31.0" prefWidth="293.0" />
+      <TextField fx:id="txtUserName" layoutX="236.0" layoutY="124.0" prefHeight="31.0" prefWidth="293.0" />
+      <Label fx:id="lblEmail" layoutX="124.0" layoutY="70.0" text="Email">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <Label fx:id="lblUsername" layoutX="25.0" layoutY="172.0" text="Username">
+      <Label fx:id="lblUsername" layoutX="127.0" layoutY="126.0" text="Username">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <Label fx:id="lblPassword" layoutX="22.0" layoutY="238.0" text="Password">
+      <Label fx:id="lblPassword" layoutX="124.0" layoutY="192.0" text="Password">
          <font>
             <Font size="19.0" />
          </font>
@@ -29,6 +29,12 @@
       <Button fx:id="btnSignUp" layoutX="245.0" layoutY="305.0" mnemonicParsing="false" onAction="#createUser" prefHeight="38.0" prefWidth="72.0" text="Sign Up" />
       <Label fx:id="lblAlreadyHaveAccount" layoutX="198.0" layoutY="279.0" onMouseClicked="#switchSceneLogin" text="Already have an Account? Log In" textFill="#ff2929" underline="true" />
       <Label fx:id="lblSignUp" layoutX="259.0" layoutY="41.0" text="Sign Up">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <TextField fx:id="conPassText" layoutX="236.0" layoutY="229.0" prefHeight="31.0" prefWidth="293.0" />
+      <Label fx:id="lblPassword1" layoutX="124.0" layoutY="230.0" text="Con Pass" wrapText="true">
          <font>
             <Font size="19.0" />
          </font>
