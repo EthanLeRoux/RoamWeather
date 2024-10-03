@@ -211,13 +211,13 @@ public void standard() throws Exception {
 
     //@FXML
     public void icons() {
-
-        Image profile = new Image("file:/C:/Appdev/ICONS/profile.png");
-        Image settings = new Image("file:/C:/Appdev/ICONS/settings.png");
-        Image fav = new Image("file:/C:/Appdev/ICONS/favorites.png");
-        Image forum = new Image("file:/C:/Appdev/ICONS/forum.png");
-        Image events = new Image("file:/C:/Appdev/ICONS/events.png");
-        Image news = new Image("file:/C:/Appdev/ICONS/news.png");
+//C:\Appdev\SimpleUsers\src\resources
+        Image profile = new Image("file:/C:/Appdev/SimpleUsers/src/resources/profile.png");
+        Image settings = new Image("file:/C:/Appdev/SimpleUsers/src/resources/settings.png");
+        Image fav = new Image("file:/C:/Appdev/SimpleUsers/src/resources/favorites.png");
+        Image forum = new Image("file:/C:/Appdev/SimpleUsers/src/resources/forum.png");
+        Image events = new Image("file:/C:/Appdev/SimpleUsers/src/resources/events.png");
+        Image news = new Image("file:/C:/Appdev/SimpleUsers/src/resources/news.png");
 
         iProfile.setImage(profile);
         iSettings.setImage(settings);
@@ -231,15 +231,15 @@ public void standard() throws Exception {
     public void today() throws Exception {
         // Get the city name from the text field
         String place = txtCity.getText();
-        Image sun = new Image("file:C:/Appdev/WeatherFinal/src/home/sun.png");
-        Image fewClouds = new Image("file:C:/Appdev/WeatherFinal/src/home/cloudy.png");
+        Image sun = new Image("file:C:/Appdev/SimpleUsers/src/resources/sun.png");
+        Image fewClouds = new Image("file:C:/Appdev/SimpleUsers/src/resources/cloudy.png");
 //        Image scatteredClouds = new Image("file:C:/Appdev/WeatherFinal/src/home/cloud.png");
 //        Image brokenClouds = new Image("file:C:/Appdev/WeatherFinal/src/home/cloud.png");
-        Image showerRain = new Image("file:C:/Appdev/WeatherFinal/src/home/heavy-rain.png");
-        Image rain = new Image("file:C:/Appdev/WeatherFinal/src/home/rain-drops.png");
-        Image thunderStorm = new Image("file:C:/Appdev/WeatherFinal/src/home/sun.png");
-        Image snow = new Image("file:C:/Appdev/WeatherFinal/src/home/sun.png");
-        Image mist = new Image("file:C:/Appdev/WeatherFinal/src/home/smoke.png");
+        Image showerRain = new Image("file:C:/Appdev/SimpleUsers/src/resources/heavy-rain.png");
+        Image rain = new Image("file:C:/Appdev/SimpleUsers/src/resources/rain-drops.png");
+        Image thunderStorm = new Image("file:C:/Appdev/SimpleUsers/src/resources/sun.png");
+        Image snow = new Image("file:C:/Appdev/SimpleUsers/src/resources/sun.png");
+        Image mist = new Image("file:C:/Appdev/SimpleUsers/src/resources/smoke.png");
         // Fetch weather data for the given city
         Today.Root todayRoot;
 
