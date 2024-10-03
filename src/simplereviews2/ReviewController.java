@@ -69,7 +69,7 @@ public class ReviewController {
         WeatherFace.Root weatherRoot;
 
         String textcity = txtCity.getText();
-        weatherRoot = WeatherGen.fetchWeatherData(textcity);
+        weatherRoot = WeatherGen.fetchWeatherData(textcity, "metric");
 
         int userRating = Integer.parseInt(comboBox.getSelectionModel().getSelectedItem().toString());
         String reviewContent = txtReview.getText();
