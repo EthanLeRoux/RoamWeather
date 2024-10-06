@@ -4,6 +4,7 @@
  */
 package simpleusers;
 
+import com.password4j.Password;
 import favourites.PopUpMessages;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -94,8 +95,9 @@ public class SignUpController {
 
         String email = txtEmail.getText();
         String userName = txtUserName.getText();
-        String password = txtUserPassword.getText();
-        String confirmpass = conPassText.getText();
+        String passwordToHash = txtUserPassword.getText();
+        String password = Password.hash(passwordToHash).addSalt("wr").withScrypt().getResult();
+        String confirmpass = Password.hash(conPassText.getText()).addSalt("wr").withScrypt().getResult();
         
         //validate the email 
         if (email.contains("@") && email.indexOf(".") < email.indexOf("@")) {
@@ -123,13 +125,13 @@ public class SignUpController {
         dao.insertUser(users);
         System.out.println("User added Successfully");
         RunSimpleUsers rs = new RunSimpleUsers();
-        rs.switchScene("/simpleusers/login.fxml");
+        rs.switchScene("/simpleForgotPassword/ForgotPassword.fxml");
     }
     
     @FXML
     public void switchSceneLogin() throws IOException{
         RunSimpleUsers rs = new RunSimpleUsers();
-        rs.switchScene("/favourites/Favourite.fxml");
+        rs.switchScene("/simpleusers/Login.fxml");
     }
     
 }

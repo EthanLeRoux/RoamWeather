@@ -4,6 +4,7 @@
  */
 package simpleusers;
 
+import com.password4j.Password;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -116,7 +117,7 @@ public class LoginController {
     
     public void loginUser() throws SQLException, IOException{
         String email = txtLoginEmail.getText();
-        String password = txtLoginPassword.getText();
+        String password = Password.hash(txtLoginPassword.getText()).addSalt("wr").withScrypt().getResult();
         User newUser = new User(email,password);
         dao = new DbDAO();
         String x = "/simpleSettings/Settings.fxml";
