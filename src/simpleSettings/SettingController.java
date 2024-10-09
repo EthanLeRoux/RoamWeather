@@ -8,6 +8,8 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -178,12 +180,52 @@ public void handleSaveButton(ActionEvent event) {
         lightBtn.setText(translateButtons.transBtnToFrench(lightBtn));
         darkBtn.setText(translateButtons.transBtnToFrench(darkBtn));
     } 
+
+    if(isDarkMode = true){
+    
+        try {
+            System.out.println("dark mode");
+            switchSceneDark();
+        } catch (IOException ex) {
+            Logger.getLogger(SettingController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    } else if (isDarkMode = false){
+    
+         try {
+            System.out.println("dark mode");
+            switchSceneLight();
+        } catch (IOException ex) {
+            Logger.getLogger(SettingController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     //----------------------------------------------------------------------------
     
     
 }
 
-
+@FXML
+    public void switchScene() throws IOException {
+        RunSimpleUsers rs = new RunSimpleUsers();
+        rs.switchScene("/home/HomePage.fxml");
+    }
+    
+    public void switchSceneLight() throws IOException {
+        RunSimpleUsers rs = new RunSimpleUsers();
+        rs.switchScene("/simpleSettings/Settings.fxml");
+    }
+    
+@FXML
+    public void switchSceneDark() throws IOException {
+        RunSimpleUsers rs = new RunSimpleUsers();
+        rs.switchScene("/simpleSettings/SettingsDark.fxml");
+    }
+    
+@FXML
+    public void switchSceneDarkHome() throws IOException {
+        RunSimpleUsers rs = new RunSimpleUsers();
+        rs.switchScene("/home/HomePageDark.fxml");
+    }
+    
     @FXML
     public void displayAllSettings(List<Settings> allSettings) {
         Alert alert = new Alert(AlertType.INFORMATION);

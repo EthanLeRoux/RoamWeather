@@ -67,6 +67,11 @@ public class HomePageController implements Initializable {
 
     @FXML
     ImageView icon,
+            iconDay1,
+            iconDay2,
+            iconDay3,
+            iconDay4,
+            iconDay5,
             iProfile,
             iSettings,
             iFav,
@@ -90,62 +95,141 @@ public class HomePageController implements Initializable {
         }
     }
 
-   // Instance variables for city and units
- // Example default city, you can modify it based on user input
-private String units = "metric"; // Default unit is metric (Celsius)
+    // Instance variables for city and units
+    // Example default city, you can modify it based on user input
+    private String units = "metric"; // Default unit is metric (Celsius)
 // Fetch weather data using the imperial units (Fahrenheit)
-public void imperial() throws Exception {
-    // Get city from input field
-    String city = txtCity.getText();
-    // Fetch weather data for the city in imperial units
-    WeatherFace.Root weatherRoot = WeatherGen.fetchWeatherData(city, "imperial");
 
-    // Set city name on the label
-    lblCity.setText(weatherRoot.city.name);
+    public void imperial() throws Exception {
+        // Get city from input field
+        String city = txtCity.getText();
+        // Fetch weather data for the city in imperial units
+        WeatherFace.Root weatherRoot = WeatherGen.fetchWeatherData(city, "imperial");
 
-    // Update the weather details (temperature, description, etc.) with imperial units
-    String temp = String.format("%.2f", weatherRoot.list.get(0).getMain().getTemp()) + "°F";
-    String feelsLike = String.format("%.2f", weatherRoot.list.get(0).getMain().getFeelsLike()) + "°F";
-    lblTemp.setText(temp);
-    lblFl.setText( feelsLike);
-    lblDesc.setText(weatherRoot.list.get(0).getWeather().get(0).getDescription());
-}
+        // Set city name on the label
+        lblCity.setText(weatherRoot.city.name);
+
+        // Update the weather details (temperature, description, etc.) with imperial units
+//    String temp = String.format("%.2f", weatherRoot.list.get(0).getMain().getTemp()) + "°F";
+//    String feelsLike = String.format("%.2f", weatherRoot.list.get(0).getMain().getFeelsLike()) + "°F";
+//    lblTemp.setText(temp);
+//    lblFl.setText( feelsLike);
+        Label[] forecastLabels = {lblDay1, lblDay2, lblDay3, lblDay4, lblDay5};
+
+        for (int i = 0; i < 5; i++) {  // Only the first 5 days
+            WeatherFace.List listItem = weatherRoot.getList().get(i * 8); // Each 8th item represents a 24-hour interval
+
+            // Extract the date part (yyyy-mm-dd)
+            String dateText = listItem.getDtTxt().split(" ")[0];
+
+            // Extract temperature and other weather conditions
+            String temp = String.format("%.2f", listItem.getMain().getTemp()) + getUnitSymbol("imperial");
+            String feelsLike = String.format("%.2f", listItem.getMain().getFeelsLike()) + getUnitSymbol("imperial");
+//            String tempMin = String.format("%.2f", listItem.getMain().getTempMin()) + getUnitSymbol("imperial");
+//            String tempMax = String.format("%.2f", listItem.getMain().getTempMax()) + getUnitSymbol("imperial");
+            String description = listItem.getWeather().get(0).getDescription();
+
+            // Build the string for the current day's forecast
+            String forecastText = dateText + "\n"
+                    + temp + "\n"
+                    + "Feels Like: " + feelsLike + "\n"
+//                    + "Min: " + tempMin + "\n"
+//                    + "Max: " + tempMax + "\n"
+                    + description + "\n";
+
+            // Set the forecast text for the corresponding label
+            forecastLabels[i].setText(forecastText);
+        }
+        //lblDesc.setText(weatherRoot.list.get(0).getWeather().get(0).getDescription());
+    }
 
 // Fetch weather data using the metric units (Celsius)
-public void metric() throws Exception {
-    // Get city from input field
-    String city = txtCity.getText();
-    // Fetch weather data for the city in metric units
-    WeatherFace.Root weatherRoot = WeatherGen.fetchWeatherData(city, "metric");
+    public void metric() throws Exception {
+        // Get city from input field
+        String city = txtCity.getText();
+        // Fetch weather data for the city in metric units
+        WeatherFace.Root weatherRoot = WeatherGen.fetchWeatherData(city, "metric");
 
-    // Set city name on the label
-    lblCity.setText(weatherRoot.city.name);
+        // Set city name on the label
+        lblCity.setText(weatherRoot.city.name);
 
-    // Update the weather details (temperature, description, etc.) with metric units
-    String temp = String.format("%.2f", weatherRoot.list.get(0).getMain().getTemp()) + "°C";
-    String feelsLike = String.format("%.2f", weatherRoot.list.get(0).getMain().getFeelsLike()) + "°C";
-    lblTemp.setText(temp);
-    lblFl.setText(feelsLike);
-    lblDesc.setText(weatherRoot.list.get(0).getWeather().get(0).getDescription());
-}
+        // Update the weather details (temperature, description, etc.) with metric units
+//    String temp = String.format("%.2f", weatherRoot.list.get(0).getMain().getTemp()) + "°C";
+//    String feelsLike = String.format("%.2f", weatherRoot.list.get(0).getMain().getFeelsLike()) + "°C";
+//    lblTemp.setText(temp);
+//    lblFl.setText(feelsLike);
+//    lblDesc.setText(weatherRoot.list.get(0).getWeather().get(0).getDescription());
+        Label[] forecastLabels = {lblDay1, lblDay2, lblDay3, lblDay4, lblDay5};
+
+        for (int i = 0; i < 5; i++) {  // Only the first 5 days
+            WeatherFace.List listItem = weatherRoot.getList().get(i * 8); // Each 8th item represents a 24-hour interval
+
+            // Extract the date part (yyyy-mm-dd)
+            String dateText = listItem.getDtTxt().split(" ")[0];
+
+            // Extract temperature and other weather conditions
+            String temp = String.format("%.2f", listItem.getMain().getTemp()) + getUnitSymbol("metric");
+            String feelsLike = String.format("%.2f", listItem.getMain().getFeelsLike()) + getUnitSymbol("metric");
+//            String tempMin = String.format("%.2f", listItem.getMain().getTempMin()) + getUnitSymbol("metric");
+//            String tempMax = String.format("%.2f", listItem.getMain().getTempMax()) + getUnitSymbol("metric");
+            String description = listItem.getWeather().get(0).getDescription();
+
+            // Build the string for the current day's forecast
+            String forecastText = dateText + "\n"
+                    + temp + "\n"
+                    + "Feels Like: " + feelsLike + "\n"
+//                    + "Min: " + tempMin + "\n"
+//                    + "Max: " + tempMax + "\n"
+                    + description + "\n";
+
+            // Set the forecast text for the corresponding label
+            forecastLabels[i].setText(forecastText);
+        }
+    }
 
 // Fetch weather data using the standard units (Kelvin)
-public void standard() throws Exception {
-    // Get city from input field
-    String city = txtCity.getText();
-    // Fetch weather data for the city in standard units
-    WeatherFace.Root weatherRoot = WeatherGen.fetchWeatherData(city, "standard");
+    public void standard() throws Exception {
+        // Get city from input field
+        String city = txtCity.getText();
+        // Fetch weather data for the city in standard units
+        WeatherFace.Root weatherRoot = WeatherGen.fetchWeatherData(city, "standard");
 
-    // Set city name on the label
-    lblCity.setText(weatherRoot.city.name);
+        // Set city name on the label
+        lblCity.setText(weatherRoot.city.name);
 
-    // Update the weather details (temperature, description, etc.) with standard units
-    String temp = String.format("%.2f", weatherRoot.list.get(0).getMain().getTemp()) + "K";
-    String feelsLike = String.format("%.2f", weatherRoot.list.get(0).getMain().getFeelsLike()) + "K";
-    lblTemp.setText(temp);
-    lblFl.setText("Feels Like: " + feelsLike);
-    lblDesc.setText(weatherRoot.list.get(0).getWeather().get(0).getDescription());
-}
+        // Update the weather details (temperature, description, etc.) with standard units
+//    String temp = String.format("%.2f", weatherRoot.list.get(0).getMain().getTemp()) + "K";
+//    String feelsLike = String.format("%.2f", weatherRoot.list.get(0).getMain().getFeelsLike()) + "K";
+//    lblTemp.setText(temp);
+//    lblFl.setText(feelsLike);
+//    lblDesc.setText(weatherRoot.list.get(0).getWeather().get(0).getDescription());
+        Label[] forecastLabels = {lblDay1, lblDay2, lblDay3, lblDay4, lblDay5};
+
+        for (int i = 0; i < 5; i++) {  // Only the first 5 days
+            WeatherFace.List listItem = weatherRoot.getList().get(i * 8); // Each 8th item represents a 24-hour interval
+
+            // Extract the date part (yyyy-mm-dd)
+            String dateText = listItem.getDtTxt().split(" ")[0];
+
+            // Extract temperature and other weather conditions
+            String temp = String.format("%.2f", listItem.getMain().getTemp()) + getUnitSymbol("standard");
+            String feelsLike = String.format("%.2f", listItem.getMain().getFeelsLike()) + getUnitSymbol("standard");
+//            String tempMin = String.format("%.2f", listItem.getMain().getTempMin()) + getUnitSymbol("standard");
+//            String tempMax = String.format("%.2f", listItem.getMain().getTempMax()) + getUnitSymbol("standard");
+            String description = listItem.getWeather().get(0).getDescription();
+
+            // Build the string for the current day's forecast
+            String forecastText = dateText + "\n"
+                    + temp + "\n"
+                    + "Feels Like: " + feelsLike + "\n"
+//                    + "Min: " + tempMin + "\n"
+//                    + "Max: " + tempMax + "\n"
+                    + description + "\n";
+
+            // Set the forecast text for the corresponding label
+            forecastLabels[i].setText(forecastText);
+        }
+    }
 // Method to fetch weather data with metric units (Celsius)
 
     @FXML
@@ -153,21 +237,25 @@ public void standard() throws Exception {
         RunSimpleUsers rs = new RunSimpleUsers();
         rs.switchScene("/simplereviews2/reviews.fxml");
     }
+
     @FXML
     public void switchSceneFav() throws IOException {
         RunSimpleUsers rs = new RunSimpleUsers();
         rs.switchScene("/favourites/Favourites.fxml");
     }
+
     @FXML
     public void switchSceneSet() throws IOException {
         RunSimpleUsers rs = new RunSimpleUsers();
         rs.switchScene("/simpleSettings/Settings.fxml");
     }
+
     @FXML
     public void switchSceneNews() throws IOException {
         RunSimpleUsers rs = new RunSimpleUsers();
         rs.switchScene("/simplereviews2/reviews.fxml");
     }
+
     @FXML
     public void switchSceneForum() throws IOException {
         RunSimpleUsers rs = new RunSimpleUsers();
@@ -184,15 +272,6 @@ public void standard() throws Exception {
         }
     }
 
-//    public void getCity() throws SQLException {
-//
-//        dao = new ReviewDAO();
-//        cities = dao.getCities();
-//        cityHistory.getItems().clear(); // Clear existing items
-//        for (Review review : cities) {
-//            cityHistory.getItems().add(review);
-//        }
-//    }
     public void getCityRev(String cityName) throws SQLException {
         dao = new ReviewDAO();
         allReviews = dao.getReviewsByCity(cityName.toUpperCase()); // Fetch reviews for the specific city
@@ -367,7 +446,14 @@ public void standard() throws Exception {
     public void start() throws Exception {
         // Get the city name from the text field
         String place = "Cape Town";
-
+        String selectedUnits = units;
+        Image fewClouds = new Image("/resources/cloudy.png");
+        Image sun = new Image("/resources/sun.png");
+        Image showerRain = new Image("/resources/heavy-rain.png");
+        Image rain = new Image("/resources/rain-drops.png");
+        Image thunderStorm = new Image("/resources/sun.png");
+        Image snow = new Image("/resources/sun.png");
+        Image mist = new Image("/resources/smoke.png");
         // Fetch weather data for the given city
         Today.Root todayRoot;
 
@@ -386,6 +472,88 @@ public void standard() throws Exception {
         if (todayRoot.weather != null && !todayRoot.weather.isEmpty()) {
             Today.Weather w = todayRoot.weather.get(0);
             lblDesc.setText(w.description); // Weather description
+            switch (w.description) {
+                case "thunderstorm with light rain":
+                case "thunderstorm with rain":
+                case "thunderstorm with heavy rain":
+                case "light thunderstorm":
+                case "thunderstorm":
+                case "heavy thunderstorm":
+                case "ragged thunderstorm":
+                case "thunderstorm with light drizzle":
+                case "thunderstorm with drizzle":
+                case "thunderstorm with heavy drizzle":
+                    icon.setImage(thunderStorm);
+                    break;
+
+                case "light intensity drizzle":
+                case "drizzle":
+                case "heavy intensity drizzle":
+                case "light intensity drizzle rain":
+                case "drizzle rain":
+                case "heavy intensity drizzle rain":
+                case "shower rain and drizzle":
+                case "heavy shower rain and drizzle":
+                case "shower drizzle":
+                    icon.setImage(showerRain);
+                    break;
+
+                case "light rain":
+                case "moderate rain":
+                case "heavy intensity rain":
+                case "very heavy rain":
+                case "extreme rain":
+                case "freezing rain":
+                case "light intensity shower rain":
+                case "shower rain":
+                case "heavy intensity shower rain":
+                case "ragged shower rain":
+                    icon.setImage(rain);
+                    break;
+
+                case "light snow":
+                case "snow":
+                case "heavy snow":
+                case "sleet":
+                case "light shower sleet":
+                case "shower sleet":
+                case "light rain and snow":
+                case "rain and snow":
+                case "light shower snow":
+                case "shower snow":
+                case "heavy shower snow":
+                    icon.setImage(snow);
+                    break;
+
+                case "mist":
+                case "smoke":
+                case "haze":
+                case "sand/dust whirls":
+                case "fog":
+                case "sand":
+                case "dust":
+                case "volcanic ash":
+                case "squalls":
+                case "tornado":
+                    icon.setImage(mist);
+                    break;
+
+                case "clear sky":
+                    icon.setImage(sun);
+                    break;
+
+                case "few clouds":
+                case "scattered clouds":
+                case "broken clouds":
+                case "overcast clouds":
+                    icon.setImage(fewClouds);
+                    break;
+
+                default:
+                    // Optionally, handle cases where no matching description is found
+                    lblDesc.setText("Weather data unavailable");
+                    break;
+            }
         }
 
         // Set the sunrise and sunset times (convert UNIX timestamp to human-readable format)
@@ -410,38 +578,119 @@ public void standard() throws Exception {
 
         }
         WeatherFace.Root weatherRoot;
-        weatherRoot = WeatherGen.fetchWeatherData(place,units);  // Fetch weather data for the city
+        weatherRoot = WeatherGen.fetchWeatherData(place, units);  // Fetch weather data for the city
 
         // Set city name
         lblCity.setText(weatherRoot.city.name);
 
         // Define an array to hold the five forecast labels
         Label[] forecastLabels = {lblDay1, lblDay2, lblDay3, lblDay4, lblDay5};
-
+        ImageView[] forecastIcons = {iconDay1, iconDay2, iconDay3, iconDay4, iconDay5};
         // Loop through the weather list (3-hour intervals) and extract the forecast for 5 days
         for (int i = 0; i < 5; i++) {  // Only the first 5 days
             WeatherFace.List listItem = weatherRoot.getList().get(i * 8); // Each 8th item represents a 24-hour interval
 
-            // Extract the date and time
-            String dateText = listItem.getDtTxt().split(" ")[0]; // Only use the date part (yyyy-mm-dd)
+            // Extract the date part (yyyy-mm-dd)
+            String dateText = listItem.getDtTxt().split(" ")[0];
 
             // Extract temperature and other weather conditions
-            String temp = String.format("%.2f", listItem.getMain().getTemp()) + "°C";
-            String feelsLike = String.format("%.2f", listItem.getMain().getFeelsLike()) + "°C ";
-            String tempMin = String.format("%.2f", listItem.getMain().getTempMin()) + "°C ";
-            String tempMax = String.format("%.2f", listItem.getMain().getTempMax()) + "°C ";
+            String temp = String.format("%.2f", listItem.getMain().getTemp()) + getUnitSymbol(selectedUnits);
+            String feelsLike = String.format("%.2f", listItem.getMain().getFeelsLike()) + getUnitSymbol(selectedUnits);
+//        String tempMin = String.format("%.2f", listItem.getMain().getTempMin()) + getUnitSymbol(selectedUnits);
+//        String tempMax = String.format("%.2f", listItem.getMain().getTempMax()) + getUnitSymbol(selectedUnits);
             String description = listItem.getWeather().get(0).getDescription();
 
             // Build the string for the current day's forecast
             String forecastText = dateText + "\n"
                     + temp + "\n"
                     + "Feels Like: " + feelsLike + "\n"
-                    + "Min: " + tempMin + "\n"
-                    + "Max : " + tempMax + "\n"
+                    //                + "Min: " + tempMin + "\n"
+                    //                + "Max: " + tempMax + "\n"
                     + description + "\n";
 
             // Set the forecast text for the corresponding label
             forecastLabels[i].setText(forecastText);
+            switch (description) {
+                case "thunderstorm with light rain":
+                case "thunderstorm with rain":
+                case "thunderstorm with heavy rain":
+                case "light thunderstorm":
+                case "thunderstorm":
+                case "heavy thunderstorm":
+                case "ragged thunderstorm":
+                case "thunderstorm with light drizzle":
+                case "thunderstorm with drizzle":
+                case "thunderstorm with heavy drizzle":
+                    forecastIcons[i].setImage(thunderStorm);
+                    break;
+
+                case "light intensity drizzle":
+                case "drizzle":
+                case "heavy intensity drizzle":
+                case "light intensity drizzle rain":
+                case "drizzle rain":
+                case "heavy intensity drizzle rain":
+                case "shower rain and drizzle":
+                case "heavy shower rain and drizzle":
+                case "shower drizzle":
+                    forecastIcons[i].setImage(showerRain);
+                    break;
+
+                case "light rain":
+                case "moderate rain":
+                case "heavy intensity rain":
+                case "very heavy rain":
+                case "extreme rain":
+                case "freezing rain":
+                case "light intensity shower rain":
+                case "shower rain":
+                case "heavy intensity shower rain":
+                case "ragged shower rain":
+                    forecastIcons[i].setImage(rain);
+                    break;
+
+                case "light snow":
+                case "snow":
+                case "heavy snow":
+                case "sleet":
+                case "light shower sleet":
+                case "shower sleet":
+                case "light rain and snow":
+                case "rain and snow":
+                case "light shower snow":
+                case "shower snow":
+                case "heavy shower snow":
+                    forecastIcons[i].setImage(snow);
+                    break;
+
+                case "mist":
+                case "smoke":
+                case "haze":
+                case "sand/dust whirls":
+                case "fog":
+                case "sand":
+                case "dust":
+                case "volcanic ash":
+                case "squalls":
+                case "tornado":
+                    forecastIcons[i].setImage(mist);
+                    break;
+
+                case "clear sky":
+                    forecastIcons[i].setImage(sun);
+                    break;
+
+                case "few clouds":
+                case "scattered clouds":
+                case "broken clouds":
+                case "overcast clouds":
+                    forecastIcons[i].setImage(fewClouds);
+                    break;
+
+                default:
+                    forecastIcons[i].setImage(null);  // Optionally clear the icon if no match is found
+                    break;
+            }
         }
         getCityRev(place);
         forecast();
@@ -473,58 +722,144 @@ public void standard() throws Exception {
     }
 
     public void forecast() throws Exception {
-    // Fetch weather data for the specified city
-    WeatherFace.Root weatherRoot;
-    String city = txtCity.getText();  // Get city from input field
-    String selectedUnits = units;  // Use the selected unit (metric, imperial, standard)
-    
-    // Fetch weather data for the city with the selected units
-    weatherRoot = WeatherGen.fetchWeatherData(city, selectedUnits);
-    
-    // Set city name on the label
-    lblCity.setText(weatherRoot.city.name);
-    
-    // Define an array to hold the five forecast labels
-    Label[] forecastLabels = {lblDay1, lblDay2, lblDay3, lblDay4, lblDay5};
+        // Fetch weather data for the specified city
+        WeatherFace.Root weatherRoot;
+        String city = txtCity.getText();  // Get city from input field
+        String selectedUnits = units;  // Use the selected unit (metric, imperial, standard)
+        Image fewClouds = new Image("/resources/cloudy.png");
+        Image sun = new Image("/resources/sun.png");
+        Image showerRain = new Image("/resources/heavy-rain.png");
+        Image rain = new Image("/resources/rain-drops.png");
+        Image thunderStorm = new Image("/resources/sun.png");
+        Image snow = new Image("/resources/sun.png");
+        Image mist = new Image("/resources/smoke.png");
+        // Fetch weather data for the city with the selected units
+        weatherRoot = WeatherGen.fetchWeatherData(city, selectedUnits);
 
-    // Loop through the weather list (3-hour intervals) and extract the forecast for 5 days
-    for (int i = 0; i < 5; i++) {  // Only the first 5 days
-        WeatherFace.List listItem = weatherRoot.getList().get(i * 8); // Each 8th item represents a 24-hour interval
-        
-        // Extract the date part (yyyy-mm-dd)
-        String dateText = listItem.getDtTxt().split(" ")[0]; 
-        
-        // Extract temperature and other weather conditions
-        String temp = String.format("%.2f", listItem.getMain().getTemp()) + getUnitSymbol(selectedUnits);
-        String feelsLike = String.format("%.2f", listItem.getMain().getFeelsLike()) + getUnitSymbol(selectedUnits);
-        String tempMin = String.format("%.2f", listItem.getMain().getTempMin()) + getUnitSymbol(selectedUnits);
-        String tempMax = String.format("%.2f", listItem.getMain().getTempMax()) + getUnitSymbol(selectedUnits);
-        String description = listItem.getWeather().get(0).getDescription();
-        
-        // Build the string for the current day's forecast
-        String forecastText = dateText + "\n"
-                + temp + "\n"
-                + "Feels Like: " + feelsLike + "\n"
-                + "Min: " + tempMin + "\n"
-                + "Max: " + tempMax + "\n"
-                + description + "\n";
-        
-        // Set the forecast text for the corresponding label
-        forecastLabels[i].setText(forecastText);
+        // Set city name on the label
+        lblCity.setText(weatherRoot.city.name);
+
+        // Define an array to hold the five forecast labels
+        Label[] forecastLabels = {lblDay1, lblDay2, lblDay3, lblDay4, lblDay5};
+        ImageView[] forecastIcons = {iconDay1, iconDay2, iconDay3, iconDay4, iconDay5};
+        // Loop through the weather list (3-hour intervals) and extract the forecast for 5 days
+        for (int i = 0; i < 5; i++) {  // Only the first 5 days
+            WeatherFace.List listItem = weatherRoot.getList().get(i * 8); // Each 8th item represents a 24-hour interval
+
+            // Extract the date part (yyyy-mm-dd)
+            String dateText = listItem.getDtTxt().split(" ")[0];
+
+            // Extract temperature and other weather conditions
+            String temp = String.format("%.2f", listItem.getMain().getTemp()) + getUnitSymbol(selectedUnits);
+            String feelsLike = String.format("%.2f", listItem.getMain().getFeelsLike()) + getUnitSymbol(selectedUnits);
+//        String tempMin = String.format("%.2f", listItem.getMain().getTempMin()) + getUnitSymbol(selectedUnits);
+//        String tempMax = String.format("%.2f", listItem.getMain().getTempMax()) + getUnitSymbol(selectedUnits);
+            String description = listItem.getWeather().get(0).getDescription();
+
+            // Build the string for the current day's forecast
+            String forecastText = dateText + "\n"
+                    + temp + "\n"
+                    + "Feels Like: " + feelsLike + "\n"
+                    //                + "Min: " + tempMin + "\n"
+                    //                + "Max: " + tempMax + "\n"
+                    + description + "\n";
+
+            // Set the forecast text for the corresponding label
+            forecastLabels[i].setText(forecastText);
+            switch (description) {
+                case "thunderstorm with light rain":
+                case "thunderstorm with rain":
+                case "thunderstorm with heavy rain":
+                case "light thunderstorm":
+                case "thunderstorm":
+                case "heavy thunderstorm":
+                case "ragged thunderstorm":
+                case "thunderstorm with light drizzle":
+                case "thunderstorm with drizzle":
+                case "thunderstorm with heavy drizzle":
+                    forecastIcons[i].setImage(thunderStorm);
+                    break;
+
+                case "light intensity drizzle":
+                case "drizzle":
+                case "heavy intensity drizzle":
+                case "light intensity drizzle rain":
+                case "drizzle rain":
+                case "heavy intensity drizzle rain":
+                case "shower rain and drizzle":
+                case "heavy shower rain and drizzle":
+                case "shower drizzle":
+                    forecastIcons[i].setImage(showerRain);
+                    break;
+
+                case "light rain":
+                case "moderate rain":
+                case "heavy intensity rain":
+                case "very heavy rain":
+                case "extreme rain":
+                case "freezing rain":
+                case "light intensity shower rain":
+                case "shower rain":
+                case "heavy intensity shower rain":
+                case "ragged shower rain":
+                    forecastIcons[i].setImage(rain);
+                    break;
+
+                case "light snow":
+                case "snow":
+                case "heavy snow":
+                case "sleet":
+                case "light shower sleet":
+                case "shower sleet":
+                case "light rain and snow":
+                case "rain and snow":
+                case "light shower snow":
+                case "shower snow":
+                case "heavy shower snow":
+                    forecastIcons[i].setImage(snow);
+                    break;
+
+                case "mist":
+                case "smoke":
+                case "haze":
+                case "sand/dust whirls":
+                case "fog":
+                case "sand":
+                case "dust":
+                case "volcanic ash":
+                case "squalls":
+                case "tornado":
+                    forecastIcons[i].setImage(mist);
+                    break;
+
+                case "clear sky":
+                    forecastIcons[i].setImage(sun);
+                    break;
+
+                case "few clouds":
+                case "scattered clouds":
+                case "broken clouds":
+                case "overcast clouds":
+                    forecastIcons[i].setImage(fewClouds);
+                    break;
+
+                default:
+                    forecastIcons[i].setImage(null);  // Optionally clear the icon if no match is found
+                    break;
+            }
+        }
     }
-}
 
 // Helper method to get the unit symbol based on the unit type
-private String getUnitSymbol(String unitType) {
-    switch (unitType) {
-        case "imperial":
-            return "°F"; // Fahrenheit for imperial
-        case "standard":
-            return "K"; // Kelvin for standard
-        default:
-            return "°C"; // Celsius for metric and default
+    private String getUnitSymbol(String unitType) {
+        switch (unitType) {
+            case "imperial":
+                return "°F"; // Fahrenheit for imperial
+            case "standard":
+                return "K"; // Kelvin for standard
+            default:
+                return "°C"; // Celsius for metric and default
+        }
     }
-}
-  
 
 }

@@ -13,12 +13,12 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="643.0" prefWidth="1247.0" style="-fx-background-color: #1b7cd7; -fx-background-radius: 0;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.HomePageController">
+<AnchorPane id="AnchorPane" prefHeight="643.0" prefWidth="1247.0" style="-fx-background-color: #0b121e; -fx-background-radius: 0;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.HomePageController">
     <stylesheets>
         <URL value="@homepage.css" />
     </stylesheets>
    <children>
-      <Pane layoutX="250.0" layoutY="81.0" prefHeight="260.0" prefWidth="520.0" style="-fx-background-color: #2b93f3; -fx-background-radius: 10;">
+      <Pane layoutX="250.0" layoutY="81.0" prefHeight="260.0" prefWidth="520.0" style="-fx-background-color: #202b3c; -fx-background-radius: 10;">
          <children>
             <Label layoutX="17.0" layoutY="24.0" text="max" textFill="WHITE">
                <font>
@@ -70,17 +70,17 @@
                </font></Label>
          </children>
       </Pane>
-      <Pane layoutX="788.0" layoutY="81.0" prefHeight="260.0" prefWidth="385.0" style="-fx-background-color: #2b93f3; -fx-background-radius: 10;">
+      <Pane layoutX="788.0" layoutY="81.0" prefHeight="260.0" prefWidth="385.0" style="-fx-background-color: #202b3c; -fx-background-radius: 10;">
          <children>
             <Button layoutX="163.0" layoutY="219.0" mnemonicParsing="false" onAction="#switchSceneRev" text="add review" />
-            <ListView fx:id="listReviews" layoutX="17.0" layoutY="44.0" prefHeight="170.0" prefWidth="353.0" style="-fx-background-color: white; -fx-background-radius: 10;" />
+            <ListView fx:id="listReviews" layoutX="17.0" layoutY="44.0" prefHeight="170.0" prefWidth="353.0" style="-fx-background-color: #333333; -fx-background-radius: 10;" />
             <Label layoutX="17.0" layoutY="14.0" text="City Review" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
          </children></Pane>
-      <Pane layoutX="14.0" layoutY="349.0" prefHeight="282.0" prefWidth="1160.0" style="-fx-background-color: #2b93f3; -fx-background-radius: 10;">
+      <Pane layoutX="14.0" layoutY="349.0" prefHeight="282.0" prefWidth="1160.0" style="-fx-background-color: #202b3c; -fx-background-radius: 10;">
          <children>
             <Separator layoutX="937.0" layoutY="58.0" orientation="VERTICAL" prefHeight="200.0" />
             <Label fx:id="lblDay5" layoutX="945.0" layoutY="50.0" text="0" textFill="WHITE">
@@ -142,7 +142,7 @@
                </image>
             </ImageView>
          </children></Pane>
-      <Pane layoutX="14.0" layoutY="81.0" prefHeight="260.0" prefWidth="234.0" style="-fx-background-color: #2b93f3; -fx-background-radius: 10;">
+      <Pane layoutX="14.0" layoutY="81.0" prefHeight="260.0" prefWidth="234.0" style="-fx-background-color: #202b3c; -fx-background-radius: 10;">
          <children>
             <Label layoutX="15.0" layoutY="14.0" text="Today" textFill="WHITE">
                <font>
@@ -175,11 +175,11 @@
       </Pane>
       <HBox alignment="CENTER" layoutX="425.0" layoutY="30.0" prefHeight="54.0" prefWidth="349.0">
          <children>
-            <TextField fx:id="txtCity" alignment="BOTTOM_CENTER" onAction="#today" prefHeight="24.0" prefWidth="288.0" style="-fx-background-color: #2b93f3;" />
-          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#today" style="-fx-background-color: #2b93f3;" text="search" textFill="WHITE" />
+            <TextField fx:id="txtCity" alignment="BOTTOM_CENTER" onAction="#today" prefHeight="24.0" prefWidth="288.0" style="-fx-background-color: #202b3c;" />
+          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#today" style="-fx-background-color: #202b3c;" text="search" textFill="WHITE" />
          </children>
       </HBox>
-      <Pane layoutX="1181.0" layoutY="81.0" prefHeight="551.0" prefWidth="58.0" style="-fx-background-color: #2b93f3; -fx-background-radius: 10;">
+      <Pane layoutX="1181.0" layoutY="81.0" prefHeight="551.0" prefWidth="58.0" style="-fx-background-color: #202b3c; -fx-background-radius: 10;">
          <children>
             <ImageView fx:id="iProfile" fitHeight="54.0" fitWidth="68.0" layoutX="2.0" layoutY="37.0" onMouseClicked="#switchSceneRev" onMousePressed="#switchSceneRev" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -213,8 +213,8 @@
             </ImageView>
          </children>
       </Pane>
-      <Button layoutX="32.0" layoutY="44.0" mnemonicParsing="false" onAction="#metric" style="-fx-background-color: #2b93f3;" text="metric" textFill="WHITE" />
-      <Button fx:id="btnImp" layoutX="145.0" layoutY="44.0" mnemonicParsing="false" onAction="#imperial" style="-fx-background-color: #2b93f3;" text="imperial" textFill="WHITE" />
-      <Button layoutX="82.0" layoutY="44.0" mnemonicParsing="false" onAction="#standard" style="-fx-background-color: #2b93f3;" text="standard" textFill="WHITE" />
+      <Button layoutX="32.0" layoutY="44.0" mnemonicParsing="false" onAction="#metric" style="-fx-background-color: #202b3c;" text="metric" textFill="WHITE" />
+      <Button fx:id="btnImp" layoutX="145.0" layoutY="44.0" mnemonicParsing="false" onAction="#imperial" style="-fx-background-color: #202b3c;" text="imperial" textFill="WHITE" />
+      <Button layoutX="82.0" layoutY="44.0" mnemonicParsing="false" onAction="#standard" style="-fx-background-color: #202b3c;" text="standard" textFill="WHITE" />
    </children>
 </AnchorPane>
