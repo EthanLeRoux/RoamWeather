@@ -216,5 +216,6 @@
       <Button layoutX="32.0" layoutY="44.0" mnemonicParsing="false" onAction="#metric" style="-fx-background-color: #2b93f3;" text="metric" textFill="WHITE" />
       <Button fx:id="btnImp" layoutX="145.0" layoutY="44.0" mnemonicParsing="false" onAction="#imperial" style="-fx-background-color: #2b93f3;" text="imperial" textFill="WHITE" />
       <Button layoutX="82.0" layoutY="44.0" mnemonicParsing="false" onAction="#standard" style="-fx-background-color: #2b93f3;" text="standard" textFill="WHITE" />
+      <Button layoutX="788.0" layoutY="45.0" mnemonicParsing="false" onAction="#switchSceneDarkHome" text="Dark" />
    </children>
 </AnchorPane>

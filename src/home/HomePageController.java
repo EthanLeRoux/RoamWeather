@@ -233,6 +233,17 @@ public class HomePageController implements Initializable {
 // Method to fetch weather data with metric units (Celsius)
 
     @FXML
+    public void switchSceneDarkHome() throws IOException {
+        RunSimpleUsers rs = new RunSimpleUsers();
+        rs.switchScene("/home/HomePageDark.fxml");
+    }
+    
+    public void switchSceneLightHome() throws IOException {
+        RunSimpleUsers rs = new RunSimpleUsers();
+        rs.switchScene("/home/HomePage.fxml");
+    }
+    
+    @FXML
     public void switchSceneRev() throws IOException {
         RunSimpleUsers rs = new RunSimpleUsers();
         rs.switchScene("/simplereviews2/reviews.fxml");

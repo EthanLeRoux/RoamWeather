@@ -35,7 +35,7 @@ public class SettingController implements Initializable {
     private Scene scene;
     private SettingsDAO settingsDAO;
     private RunSimpleUsers runSimpleUsers;
-    private boolean isDarkMode = false; // Keep track of theme mode
+    private boolean isDarkMode = false ; // Keep track of theme mode
 
     @FXML
     private Button lightBtn;
@@ -101,9 +101,7 @@ public void handleSaveButton(ActionEvent event) {
     String selectedLanguage = comboLang.getValue();
     String unit = getUnit(event);
      TranslateButtons translateButtons = new TranslateButtons();
-   
      
-
     if (selectedLanguage != null) {
         // Save the selected settings
         Settings settings = new Settings(isDarkMode, selectedLanguage, unit, 1);
@@ -168,8 +166,7 @@ public void handleSaveButton(ActionEvent event) {
         System.out.println("Please select a language.");
     }
     //------------------------------------------------------------------------
- 
-    
+
     // Example of translating button texts after saving settings
     if ("french".equals(selectedLanguage)) {
         savebtn.setText(translateButtons.transBtnToSpanish(savebtn));
@@ -181,25 +178,21 @@ public void handleSaveButton(ActionEvent event) {
         darkBtn.setText(translateButtons.transBtnToFrench(darkBtn));
     } 
 
-    if(isDarkMode = true){
-    
-        try {
-            System.out.println("dark mode");
-            switchSceneDark();
-        } catch (IOException ex) {
-            Logger.getLogger(SettingController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    } else if (isDarkMode = false){
-    
-         try {
-            System.out.println("dark mode");
-            switchSceneLight();
-        } catch (IOException ex) {
-            Logger.getLogger(SettingController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    if (isDarkMode) { // Correct comparison
+    try {
+        System.out.println("dark mode");
+        switchSceneDark();
+    } catch (IOException ex) {
+        Logger.getLogger(SettingController.class.getName()).log(Level.SEVERE, null, ex);
     }
-    //----------------------------------------------------------------------------
-    
+} else { // No need to check again, this is the false case
+    try {
+        System.out.println("light mode");
+        switchSceneLight();
+    } catch (IOException ex) {
+        Logger.getLogger(SettingController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+}
     
 }
 
