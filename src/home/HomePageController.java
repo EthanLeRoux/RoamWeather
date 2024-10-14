@@ -4,12 +4,17 @@
  */
 package home;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -43,6 +48,27 @@ public class HomePageController implements Initializable {
     TextField txtCity;
 
     @FXML
+    MenuButton mbLang;
+
+    @FXML
+    MenuItem miSpanish;
+
+    @FXML
+    MenuItem miJapanese;
+
+    @FXML
+    MenuItem miChinese;
+
+    @FXML
+    MenuItem miKorean;
+
+    @FXML
+    MenuItem miFrench;
+
+    @FXML
+    MenuItem miDutch;
+
+    @FXML
     Label lblCity,
             lblDate,
             lblFl,
@@ -66,6 +92,33 @@ public class HomePageController implements Initializable {
     ListView cityHistory;
 
     @FXML
+    Label lblToday;
+
+    @FXML
+    Label lbl5DayForecast, lblCityReview;
+
+    @FXML
+    Label lblMaximum;
+
+    @FXML
+    Label lblMinimum;
+
+    @FXML
+    Label lblFeelsLike;
+
+    @FXML
+    Label lblHumidity;
+
+    @FXML
+    Label lblSunset;
+
+    @FXML
+    Label lblSunrise;
+
+    @FXML
+    Button btnAddReview, btnSearch;
+
+    @FXML
     ImageView icon,
             iconDay1,
             iconDay2,
@@ -78,9 +131,12 @@ public class HomePageController implements Initializable {
             iForum,
             iEvents,
             iNews;
+    String feelsLikeText = "Feels Like: ";
 
     @Override
+    @SuppressWarnings("empty-statement")
     public void initialize(URL url, ResourceBundle rb) {
+
         try {
             icons();
 
@@ -94,7 +150,7 @@ public class HomePageController implements Initializable {
             Logger.getLogger(HomePageController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
     // Instance variables for city and units
     // Example default city, you can modify it based on user input
     private String units = "metric"; // Default unit is metric (Celsius)
@@ -132,9 +188,9 @@ public class HomePageController implements Initializable {
             // Build the string for the current day's forecast
             String forecastText = dateText + "\n"
                     + temp + "\n"
-                    + "Feels Like: " + feelsLike + "\n"
-//                    + "Min: " + tempMin + "\n"
-//                    + "Max: " + tempMax + "\n"
+                    + feelsLikeText + feelsLike + "\n"
+                    //                    + "Min: " + tempMin + "\n"
+                    //                    + "Max: " + tempMax + "\n"
                     + description + "\n";
 
             // Set the forecast text for the corresponding label
@@ -173,13 +229,12 @@ public class HomePageController implements Initializable {
 //            String tempMin = String.format("%.2f", listItem.getMain().getTempMin()) + getUnitSymbol("metric");
 //            String tempMax = String.format("%.2f", listItem.getMain().getTempMax()) + getUnitSymbol("metric");
             String description = listItem.getWeather().get(0).getDescription();
-
             // Build the string for the current day's forecast
             String forecastText = dateText + "\n"
                     + temp + "\n"
-                    + "Feels Like: " + feelsLike + "\n"
-//                    + "Min: " + tempMin + "\n"
-//                    + "Max: " + tempMax + "\n"
+                    + feelsLikeText + feelsLike + "\n"
+                    //                    + "Min: " + tempMin + "\n"
+                    //                    + "Max: " + tempMax + "\n"
                     + description + "\n";
 
             // Set the forecast text for the corresponding label
@@ -221,9 +276,9 @@ public class HomePageController implements Initializable {
             // Build the string for the current day's forecast
             String forecastText = dateText + "\n"
                     + temp + "\n"
-                    + "Feels Like: " + feelsLike + "\n"
-//                    + "Min: " + tempMin + "\n"
-//                    + "Max: " + tempMax + "\n"
+                    + feelsLikeText + feelsLike + "\n"
+                    //                    + "Min: " + tempMin + "\n"
+                    //                    + "Max: " + tempMax + "\n"
                     + description + "\n";
 
             // Set the forecast text for the corresponding label
@@ -237,16 +292,22 @@ public class HomePageController implements Initializable {
         RunSimpleUsers rs = new RunSimpleUsers();
         rs.switchScene("/home/HomePageDark.fxml");
     }
-    
+
     public void switchSceneLightHome() throws IOException {
         RunSimpleUsers rs = new RunSimpleUsers();
         rs.switchScene("/home/HomePage.fxml");
     }
-    
+
     @FXML
     public void switchSceneRev() throws IOException {
         RunSimpleUsers rs = new RunSimpleUsers();
         rs.switchScene("/simplereviews2/reviews.fxml");
+    }
+    
+     @FXML
+    public void switchSceneProfile() throws IOException {
+        RunSimpleUsers rs = new RunSimpleUsers();
+        rs.switchScene("/simpleprofile/profile.fxml");
     }
 
     @FXML
@@ -614,7 +675,7 @@ public class HomePageController implements Initializable {
             // Build the string for the current day's forecast
             String forecastText = dateText + "\n"
                     + temp + "\n"
-                    + "Feels Like: " + feelsLike + "\n"
+                    + feelsLikeText + feelsLike + "\n"
                     //                + "Min: " + tempMin + "\n"
                     //                + "Max: " + tempMax + "\n"
                     + description + "\n";
@@ -770,7 +831,7 @@ public class HomePageController implements Initializable {
             // Build the string for the current day's forecast
             String forecastText = dateText + "\n"
                     + temp + "\n"
-                    + "Feels Like: " + feelsLike + "\n"
+                    + feelsLikeText + feelsLike + "\n"
                     //                + "Min: " + tempMin + "\n"
                     //                + "Max: " + tempMax + "\n"
                     + description + "\n";

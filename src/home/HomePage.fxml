@@ -20,27 +20,27 @@
    <children>
       <Pane layoutX="250.0" layoutY="81.0" prefHeight="260.0" prefWidth="520.0" style="-fx-background-color: #2b93f3; -fx-background-radius: 10;">
          <children>
-            <Label layoutX="17.0" layoutY="24.0" text="max" textFill="WHITE">
+            <Label fx:id="lblMaximum" layoutX="17.0" layoutY="24.0" text="max" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label layoutX="14.0" layoutY="136.0" text="min" textFill="WHITE">
+            <Label fx:id="lblMinimum" layoutX="14.0" layoutY="136.0" text="min" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label layoutX="181.0" layoutY="33.0" text="feels like" textFill="WHITE">
+            <Label fx:id="lblFeelsLike" layoutX="181.0" layoutY="33.0" text="feels like" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label layoutX="180.0" layoutY="136.0" text="humidity" textFill="WHITE">
+            <Label fx:id="lblHumidity" layoutX="180.0" layoutY="136.0" text="humidity" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label layoutX="349.0" layoutY="136.0" text="sunset" textFill="WHITE">
+            <Label fx:id="lblSunset" layoutX="349.0" layoutY="136.0" text="sunset" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label layoutX="354.0" layoutY="37.0" text="sunrise" textFill="WHITE">
+            <Label fx:id="lblSunrise" layoutX="354.0" layoutY="37.0" text="sunrise" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font></Label>
@@ -72,9 +72,9 @@
       </Pane>
       <Pane layoutX="788.0" layoutY="81.0" prefHeight="260.0" prefWidth="385.0" style="-fx-background-color: #2b93f3; -fx-background-radius: 10;">
          <children>
-            <Button layoutX="163.0" layoutY="219.0" mnemonicParsing="false" onAction="#switchSceneRev" text="add review" />
+            <Button fx:id="btnAddReview" layoutX="163.0" layoutY="219.0" mnemonicParsing="false" onAction="#switchSceneRev" text="add review" />
             <ListView fx:id="listReviews" layoutX="17.0" layoutY="44.0" prefHeight="170.0" prefWidth="353.0" style="-fx-background-color: white; -fx-background-radius: 10;" />
-            <Label layoutX="17.0" layoutY="14.0" text="City Review" textFill="WHITE">
+            <Label fx:id="lblCityReview" layoutX="17.0" layoutY="14.0" text="City Review" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -88,7 +88,7 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="14.0" text="5 Day Forecast" textFill="WHITE">
+            <Label fx:id="lbl5DayForecast" layoutX="14.0" layoutY="14.0" text="5 Day Forecast" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -144,7 +144,7 @@
          </children></Pane>
       <Pane layoutX="14.0" layoutY="81.0" prefHeight="260.0" prefWidth="234.0" style="-fx-background-color: #2b93f3; -fx-background-radius: 10;">
          <children>
-            <Label layoutX="15.0" layoutY="14.0" text="Today" textFill="WHITE">
+            <Label fx:id="lblToday" layoutX="15.0" layoutY="14.0" text="Today" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font></Label>
@@ -176,12 +176,12 @@
       <HBox alignment="CENTER" layoutX="425.0" layoutY="30.0" prefHeight="54.0" prefWidth="349.0">
          <children>
             <TextField fx:id="txtCity" alignment="BOTTOM_CENTER" onAction="#today" prefHeight="24.0" prefWidth="288.0" style="-fx-background-color: #2b93f3;" />
-          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#today" style="-fx-background-color: #2b93f3;" text="search" textFill="WHITE" />
+          <Button fx:id="btnSearch" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#today" style="-fx-background-color: #2b93f3;" text="search" textFill="WHITE" />
          </children>
       </HBox>
       <Pane layoutX="1181.0" layoutY="81.0" prefHeight="551.0" prefWidth="58.0" style="-fx-background-color: #2b93f3; -fx-background-radius: 10;">
          <children>
-            <ImageView fx:id="iProfile" fitHeight="54.0" fitWidth="68.0" layoutX="2.0" layoutY="37.0" onMouseClicked="#switchSceneRev" onMousePressed="#switchSceneRev" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="iProfile" fitHeight="54.0" fitWidth="68.0" layoutX="2.0" layoutY="37.0" onMouseClicked="#switchSceneProfile" onMousePressed="#switchSceneProfile" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../Cavani%2321/CPUT/second%20year/PRT/pngtree-vector-cloud-icon-png-image_939423.jpg" />
                </image>

@@ -62,23 +62,6 @@ public class OTPController {
         br = new BufferedReader(fr);
         int userId = Integer.parseInt(br.readLine());
         String email2 = dao.getUserEmailById(userId);
-        
-        secretKey = dao.getUserKey(userId);
-        
-        lblSecretKey.setText(secretKey);
-            // Display barcode URL for Google Authenticator
-            String email = "test@gmail.com";
-            String companyName = "Roam Weather Test Trial for " + email2;
-            String barCodeUrl = getGoogleAuthenticatorBarCode(secretKey, email, companyName);
-            //System.out.println("Google Authenticator Barcode URL: " + barCodeUrl);
-
-            // Generate QR code
-            createQRCode(barCodeUrl, "QRCode.png", 300, 300);
-            //System.out.println("QR Code generated at: QRCode.png");
-
-            File file = new File("QRCode.png");
-            Image qrImage = new Image(file.toURI().toString());
-            imgQR.setImage(qrImage);
     }
     
     public void checkCode(){

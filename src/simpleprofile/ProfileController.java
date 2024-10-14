@@ -21,6 +21,7 @@ import static simpleForgotPassword.TwoFactorAuth.createQRCode;
 import static simpleForgotPassword.TwoFactorAuth.getGoogleAuthenticatorBarCode;
 import simpleposts.PopUpMessage;
 import simpleusers.DbDAO;
+import simpleusers.RunSimpleUsers;
 
 /**
  *
@@ -36,6 +37,12 @@ public class ProfileController {
     
     @FXML
     Label  lblSecretKey;
+    
+    @FXML
+    Button btnForgotPass;
+    
+    @FXML
+    Label  lblUsername;
     
     PopUpMessage pum;
     String secretKey;
@@ -65,5 +72,17 @@ public class ProfileController {
             Image qrImage = new Image(file.toURI().toString());
             imgQR.setImage(qrImage);
         
+    }
+    
+    @FXML
+    void forgotPass() throws IOException{
+        RunSimpleUsers rs = new RunSimpleUsers();
+        rs.switchScene("/simpleForgotPassword/ForgotPassword.fxml");
+    }
+    
+    @FXML
+    void switchSceneHome() throws IOException{
+        RunSimpleUsers rs = new RunSimpleUsers();
+        rs.switchScene("/home/HomePage.fxml");
     }
 }

@@ -21,9 +21,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import simpletranslations.TranslateButtons;
-import simpletranslations.TranslateGeneral;
-import simpletranslations.TranslateLabels;
 import space.dynomake.libretranslate.Language;
 
 /**
