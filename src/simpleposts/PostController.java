@@ -21,10 +21,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import simpletranslations.TranslateButtons;
-import simpletranslations.TranslateGeneral;
-import simpletranslations.TranslateLabels;
 import simpleusers.DbDAO;
+import simpleusers.RunSimpleUsers;
 import space.dynomake.libretranslate.Language;
 
 /**
@@ -65,6 +63,9 @@ Button btnUpdatePost;
 
 @FXML
 Button btnDeletePost;
+
+@FXML
+ImageView btnHome;
 
 @FXML
     MenuButton menuBtn;
@@ -241,5 +242,9 @@ public void deletePost() throws SQLException, FileNotFoundException, IOException
             }
 }
 
+public void switchSceneHome() throws IOException{
+        RunSimpleUsers rs = new RunSimpleUsers();
+        rs.switchScene("/home/HomePage.fxml");
+    }
 
 } 

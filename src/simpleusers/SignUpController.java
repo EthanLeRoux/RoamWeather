@@ -124,8 +124,7 @@ public class SignUpController {
         User users = new User(email, userName, password);
         dao.insertUser(users);
         System.out.println("User added Successfully");
-        RunSimpleUsers rs = new RunSimpleUsers();
-        rs.switchScene("/simpleForgotPassword/ForgotPassword.fxml");
+        switchSceneLogin();
     }
     
     @FXML

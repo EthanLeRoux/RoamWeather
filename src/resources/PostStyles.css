@@ -34,6 +34,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-font-size: 14px;            /* Font size */
 }
 
+#btnHome {
+    background-image: url('/resources/back.png');
+}
+
 /* Styling for individual ListCells (items in the ListView) */
 .list-cell {
     -fx-background-color: #ecf0f1;  /* Light grey background for cells */

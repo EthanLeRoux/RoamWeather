@@ -33,6 +33,7 @@ public class RunSimpleUsers extends Application{
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));//Change back to sign up after fixing posts page
         Scene scn = new Scene(root);
         primaryStage.setScene(scn);
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
     
@@ -40,6 +41,8 @@ public class RunSimpleUsers extends Application{
         Parent root = FXMLLoader.load(getClass().getResource(fxml));
         Scene scn = new Scene(root);
         primaryStage.setScene(scn);
+        primaryStage.setMaximized(true);
+        primaryStage.show();
     }
     
 }
