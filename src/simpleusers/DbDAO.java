@@ -93,6 +93,27 @@ public class DbDAO {
         rs.close();
         return user;
     }
+        
+        public User findUserWIthUserName(User user) throws SQLException{
+        conn = new DBConnection();
+        String read_post_stmt = "SELECT * FROM USERS WHERE user_name = '"+user.getUserEmail()+"' AND user_password = '"+user.getUserPassword()+"'";
+        Statement stmt = conn.getConn().createStatement();
+        stmt.execute(read_post_stmt);
+        
+        ResultSet rs = stmt.executeQuery(read_post_stmt);
+         if (rs.next()) {
+        user.setUserName(rs.getString("user_name"));
+        user.setUserPassword(rs.getString("user_password"));
+        user.setUserId(rs.getInt(1));
+        // Assuming user has other fields to set from the database
+        // user.setOtherField(rs.getString("other_field"));
+        } 
+        else {
+            user = null;
+        }
+        rs.close();
+        return user;
+    }
     
     public Integer getUserId(String email, String password) throws SQLException {
         Integer userId = null;

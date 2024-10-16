@@ -33,7 +33,7 @@
             <Image url="@../resources/profile.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnForgotPass" layoutX="397.0" layoutY="275.0" mnemonicParsing="false" onAction="#forgotPass" onMouseClicked="#forgotPass" text="Forgot Password?" />
+      <Button fx:id="btnForgotPass" layoutX="397.0" layoutY="275.0" mnemonicParsing="false" onAction="#forgotPass" onMouseClicked="#forgotPass" text="Change Password" />
       <ImageView fx:id="btnHome" fitHeight="37.0" fitWidth="40.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#switchSceneHome" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/back1.png" />

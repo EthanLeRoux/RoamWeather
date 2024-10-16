@@ -18,14 +18,13 @@
          </font></Button>
       <TextArea fx:id="txtPost" layoutX="14.0" layoutY="319.0" prefHeight="69.0" prefWidth="479.0" />
       <ListView fx:id="listPosts" layoutX="14.0" layoutY="57.0" prefHeight="214.0" prefWidth="567.0" stylesheets="@../resources/PostStyles.css" />
-      <Button fx:id="btnShowPosts" layoutX="14.0" layoutY="286.0" mnemonicParsing="false" onAction="#showPosts" prefHeight="25.0" prefWidth="65.0" text="SHOW" />
       <Label fx:id="lblPosts" layoutX="261.0" layoutY="21.0" prefHeight="35.0" prefWidth="79.0" text="Forum">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Button fx:id="btnUpdatePost" layoutX="98.0" layoutY="286.0" mnemonicParsing="false" onAction="#updatePost" prefHeight="25.0" prefWidth="65.0" text="UPDATE" />
-      <Button fx:id="btnDeletePost" layoutX="181.0" layoutY="286.0" mnemonicParsing="false" onAction="#deletePost" prefHeight="25.0" prefWidth="65.0" text="DELETE" />
+      <Button fx:id="btnUpdatePost" layoutX="15.0" layoutY="286.0" mnemonicParsing="false" onAction="#updatePost" prefHeight="25.0" prefWidth="65.0" text="UPDATE" />
+      <Button fx:id="btnDeletePost" layoutX="94.0" layoutY="286.0" mnemonicParsing="false" onAction="#deletePost" prefHeight="25.0" prefWidth="65.0" text="DELETE" />
       <ImageView fx:id="btnHome" fitHeight="27.0" fitWidth="37.0" layoutX="20.0" layoutY="21.0" onMouseClicked="#switchSceneHome" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/back1.png" />

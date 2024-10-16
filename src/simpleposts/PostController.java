@@ -120,8 +120,7 @@ public void addPost() throws FileNotFoundException, IOException, SQLException{
             //listPosts.getItems().add(newPost.toStringForListView());
             listPosts.getItems().add(newPost.toStringWithUserName());
             showPosts();
-            txtPost.setText("");
-            pum.showInformationDialog("Create Post Dialog", "Post Creation", "Post has been created.");      
+            txtPost.setText("");     
     }
 
     public String extractBeforeNewline(String input) {

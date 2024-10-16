@@ -58,7 +58,7 @@ public class ProfileController {
         br = new BufferedReader(fr);
         int userId = Integer.parseInt(br.readLine());
         secretKey = dao.getUserKey(userId);
-        
+
         lblSecretKey.setText(secretKey);
             // Display barcode URL for Google Authenticator
             String email = "test@gmail.com";
@@ -77,7 +77,7 @@ public class ProfileController {
     @FXML
     void forgotPass() throws IOException{
         RunSimpleUsers rs = new RunSimpleUsers();
-        rs.switchScene("/simpleForgotPassword/ForgotPassword.fxml");
+        rs.switchScene("/simpleForgotPassword/ChangePassword.fxml");
     }
     
     @FXML
