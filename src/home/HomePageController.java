@@ -4,11 +4,7 @@
  */
 package home;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
@@ -159,6 +155,7 @@ public class HomePageController implements Initializable {
     public void imperial() throws Exception {
         // Get city from input field
         String city = txtCity.getText();
+        writeCity(city);
         // Fetch weather data for the city in imperial units
         WeatherFace.Root weatherRoot = WeatherGen.fetchWeatherData(city, "imperial");
 
@@ -203,6 +200,7 @@ public class HomePageController implements Initializable {
     public void metric() throws Exception {
         // Get city from input field
         String city = txtCity.getText();
+        writeCity(city);
         // Fetch weather data for the city in metric units
         WeatherFace.Root weatherRoot = WeatherGen.fetchWeatherData(city, "metric");
 
@@ -246,6 +244,7 @@ public class HomePageController implements Initializable {
     public void standard() throws Exception {
         // Get city from input field
         String city = txtCity.getText();
+        writeCity(city);
         // Fetch weather data for the city in standard units
         WeatherFace.Root weatherRoot = WeatherGen.fetchWeatherData(city, "standard");
 
@@ -325,7 +324,7 @@ public class HomePageController implements Initializable {
     @FXML
     public void switchSceneNews() throws IOException {
         RunSimpleUsers rs = new RunSimpleUsers();
-        rs.switchScene("/simplereviews2/reviews.fxml");
+        rs.switchScene("/simplenewswithmaps/articles.fxml");
     }
 
     @FXML
@@ -797,6 +796,7 @@ public class HomePageController implements Initializable {
         // Fetch weather data for the specified city
         WeatherFace.Root weatherRoot;
         String city = txtCity.getText();  // Get city from input field
+        writeCity(city);
         String selectedUnits = units;  // Use the selected unit (metric, imperial, standard)
         Image fewClouds = new Image("/resources/cloudy.png");
         Image sun = new Image("/resources/sun.png");
@@ -932,6 +932,13 @@ public class HomePageController implements Initializable {
             default:
                 return "°C"; // Celsius for metric and default
         }
+    }
+    
+    private void writeCity(String city) throws IOException{
+        FileWriter fw = new FileWriter("city.txt");
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write(city);
+        bw.close();
     }
 
 }
