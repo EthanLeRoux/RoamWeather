@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../resources/SignUp.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="simpleusers.SignUpController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="404.0" prefWidth="630.0" stylesheets="@../resources/SignUp.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="simpleusers.SignUpController">
    <children>
       <Button layoutX="428.0" layoutY="339.0" mnemonicParsing="false" onAction="#createUser" prefHeight="30.0" prefWidth="72.0" style="-fx-background-color: #214969;" text="Sign Up" textFill="WHITE">
          <font>
@@ -38,7 +38,7 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <ImageView id="img" fx:id="img" fitHeight="408.0" fitWidth="304.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="img" fx:id="img" fitHeight="408.0" fitWidth="304.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0">
          <image>
             <Image url="@../resources/bg.jpg" />
          </image></ImageView>

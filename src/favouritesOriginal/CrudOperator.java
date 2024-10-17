@@ -2,16 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package favourites;
+package favouritesOriginal;
 
 import java.sql.Connection;
-import simpleusers.DBConnection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import simpleusers.DBConnection;
 
 /**
  *
@@ -37,9 +37,9 @@ public class CrudOperator {
 
         try {
             pstmt = conn.prepareStatement(insertSql);
-           // Set the city_name value
+            // Set the city_name value
             pstmt.setInt(1, fav.getUser_id());// Set the user_id value
-             pstmt.setString(2, fav.getCity_name()); 
+            pstmt.setString(2, fav.getCity_name());
 
             pstmt.executeUpdate();
             System.out.println("Favourite inserted successfully.");
@@ -52,20 +52,22 @@ public class CrudOperator {
                     pstmt.close();
                 } catch (SQLException e) {
                     System.out.println("Error closing PreparedStatement: " + e.getMessage());
+                    JOptionPane.showMessageDialog(null, "Unexpected Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+
                 }
             }
         }
     }//end insert method
 
     public void removeFavourite(int favID) throws SQLException {
-        String deleteString = "DELETE FROM Favourites Where FAVOURITE_ID =  ?";
+        String deleteString = "DELETE FROM Favourites Where FAVOURITE_ID = ?";
 
         try {
-          //  int favID = 0;
+         
             pstmt = conn.prepareStatement(deleteString);
-            pstmt.setInt(1,favID);
+            pstmt.setInt(1, favID);
             pstmt.executeUpdate();
-            
+
         } catch (SQLException e) {
             System.out.println("SQL Error: " + e.getMessage());
         } finally {
@@ -79,22 +81,23 @@ public class CrudOperator {
                 }
             }
         }
-     
-    }//end method
 
-    public void updateFavourite(Favourites fav) {
-        String updateString = "UPDATE Favourites SET City_Name = ? WHERE User_id = ?";
+    }//end of remove method
+
+    public void updateFavourite(int faveId, String cityName) {
+
+        cityName = cityName.replace(" ", " ");
+        String updateString = "UPDATE Favourites SET City_Name = ? WHERE FAVOURITE_ID = ?";
         PreparedStatement pstmt = null;
 
         try {
             pstmt = conn.prepareStatement(updateString);
-            pstmt.setString(1, fav.getCity_name());
-            pstmt.setInt(2, fav.getUser_id());
+            pstmt.setString(1, cityName);
+            pstmt.setInt(2, faveId);
 
-            int rowsUpdated = pstmt.executeUpdate();
-            if (rowsUpdated > 0) {
-                System.out.println("An existing user's favourite city was updated successfully!");
-            }
+            //Execute update
+            pstmt.executeUpdate();
+
         } catch (SQLException e) {
             System.out.println("SQL Error: " + e.getMessage());
         } finally {
@@ -109,31 +112,6 @@ public class CrudOperator {
             }
         } //end of finnaly
     } // end of method
-    
-//    public void updateFave(int faveId, String cityName) throws SQLException {
-//        cityName = cityName.replace("'", "''");
-//        String updateString = "UPDATE Favourites SET City_Name = ? WHERE User_id = ?";
-//        PreparedStatement pstmt = conn.prepareStatement(updateString);
-//        pstmt.setString(1, cityName);
-//        pstmt.setInt(2, faveId);
-//            
-//        pstmt.executeUpdate();
-//    }
-    
-    public void updateFave(int faveId, String cityName) throws SQLException {
-    cityName = cityName.replace("'", "''");
-    String updateString = "UPDATE Favourites SET City_Name = ? WHERE FAVOURITE_ID = ?";
-    
-    // Use try-with-resources to ensure resources are closed properly
-    try (PreparedStatement pstmt = conn.prepareStatement(updateString)) {
-        pstmt.setString(1, cityName); // Set cityName as the first parameter
-        pstmt.setInt(2, faveId); // Set faveId as the second parameter
-        
-        // Execute the update
-        pstmt.executeUpdate();
-    }
-}
-
 
     public List<Favourites> read() {
         List<Favourites> favs = new ArrayList<>();
@@ -145,12 +123,12 @@ public class CrudOperator {
             rs = pstmt.executeQuery();
 
             while (rs.next()) {
-    
+
                 String cityName = rs.getString("City_name");
                 int userId = rs.getInt("User_id");
-                int  favId = rs.getInt("Favourite_ID");
-              
-                favs.add(new Favourites(cityName,userId, favId));
+                int favId = rs.getInt("Favourite_ID");
+
+                favs.add(new Favourites(cityName, userId, favId));
 
             }
         } catch (SQLException sqlE) {
@@ -171,8 +149,7 @@ public class CrudOperator {
         }
         return favs;
     }
-   
-   
+
 //    
 //     public List<Favourites> read() {
 //        List<Favourites> favs = new ArrayList<>();
@@ -216,7 +193,6 @@ public class CrudOperator {
 //        return favs;
 //    }
 //    
-    
 //  public void removeFavourite(int Favorites_Id) throws SQLException {
 //        String deleteString = "DELETE FROM Favourites Where user_id = Favourites_id values(?)";
 //
@@ -241,5 +217,4 @@ public class CrudOperator {
 //        }
 //
 //    }
-    
 }

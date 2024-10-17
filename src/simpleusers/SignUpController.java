@@ -5,7 +5,7 @@
 package simpleusers;
 
 import com.password4j.Password;
-import favourites.PopUpMessages;
+import favouritesOriginal.PopUpMessages;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;

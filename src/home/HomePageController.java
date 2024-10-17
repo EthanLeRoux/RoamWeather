@@ -349,7 +349,7 @@ public class HomePageController implements Initializable {
     @FXML
     public void switchSceneFav() throws IOException {
         RunSimpleUsers rs = new RunSimpleUsers();
-        rs.switchScene("/favourites/Favourites.fxml");
+        rs.switchScene("/favourites/favourites.fxml");
     }
 
     @FXML

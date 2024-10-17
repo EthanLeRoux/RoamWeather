@@ -16,9 +16,9 @@
       </Label>
       <TextField fx:id="searchTxt" layoutX="373.0" layoutY="26.0" prefHeight="34.0" prefWidth="175.0" promptText="search city" />
       <ListView fx:id="City_List" layoutX="47.0" layoutY="72.0" prefHeight="256.0" prefWidth="506.0" />
-      <Button fx:id="addBtn" layoutX="87.0" layoutY="340.0" mnemonicParsing="false" onAction="#add" prefHeight="34.0" prefWidth="81.0" text="Add" />
-      <Button fx:id="deleteBtn" layoutX="200.0" layoutY="340.0" mnemonicParsing="false" onAction="#delete" prefHeight="34.0" prefWidth="81.0" text="Delete" />
-      <Button fx:id="updateBtn" layoutX="307.0" layoutY="340.0" mnemonicParsing="false" onAction="#update" prefHeight="34.0" prefWidth="81.0" text="Update" />
-      <Button fx:id="readBtn" layoutX="414.0" layoutY="340.0" mnemonicParsing="false" onAction="#read" prefHeight="34.0" prefWidth="81.0" text="Read" />
+      <Button fx:id="addBtn" layoutX="87.0" layoutY="340.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="81.0" text="Add" />
+      <Button fx:id="deleteBtn" layoutX="200.0" layoutY="340.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="81.0" text="Delete" />
+      <Button fx:id="updateBtn" layoutX="307.0" layoutY="340.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="81.0" text="Update" />
+      <Button fx:id="readBtn" layoutX="414.0" layoutY="340.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="81.0" text="Read" />
    </children>
 </AnchorPane>
