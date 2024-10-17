@@ -20,6 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import simpleposts.PopUpMessage;
 import simplereviews2.Review;
 import simplereviews2.ReviewDAO;
 import simpleusers.RunSimpleUsers;
@@ -132,6 +133,8 @@ public class HomePageController implements Initializable {
             iEvents,
             iNews;
     String feelsLikeText = "Feels Like: ";
+            PopUpMessage pum;
+
 
     @Override
     @SuppressWarnings("empty-statement")
@@ -426,6 +429,8 @@ public class HomePageController implements Initializable {
         Image mist = new Image("/resources/smoke.png");
         // Fetch weather data for the given city
         Today.Root todayRoot;
+        try{
+        pum = new PopUpMessage();
 
         todayRoot = Gen.fetchWeatherData(place);
 
@@ -543,7 +548,12 @@ public class HomePageController implements Initializable {
             }
 
         }
+}
+catch(Exception e){
 
+        pum.showErrorDialog("City Not Found", "Invalid City", "The city '" + place + "' could not be found .");
+    
+}
         getCityRev(place);
         forecast();
     }
