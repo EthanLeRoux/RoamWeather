@@ -6,7 +6,6 @@ package simpleusers;
 
 import com.password4j.Password;
 import java.io.BufferedWriter;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,11 +16,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import space.dynomake.libretranslate.Language;
+import simpleposts.PopUpMessage;
 
 /**
  *
@@ -89,7 +86,8 @@ public class LoginController {
     
     @FXML
     HBox hboxMenu;
-            
+       
+    PopUpMessage pum;
     public void initialize() throws FileNotFoundException{
 }
     
@@ -113,24 +111,30 @@ public class LoginController {
     }
     
     public void loginUser() throws SQLException, IOException{
-        String email = txtLoginEmail.getText();
+        pum = new PopUpMessage();
+        String username = txtLoginEmail.getText();
         String password = Password.hash(txtLoginPassword.getText()).addSalt("wr").withScrypt().getResult();
-        User newUser = new User(email,password);
+        User newUser = new User(username,password);
         dao = new DbDAO();
-        String x = "/simpleSettings/Settings.fxml";
-        User foundUser = dao.findUser(newUser);
+        User foundUser = dao.findUserWIthUserName(newUser);
         
-        if(foundUser!= null){
-            System.out.println("User Exists");
-            
-            this.saveUserSess(foundUser);
-            rsu = new RunSimpleUsers();
-            rsu.switchScene("/home/HomePage.fxml");
+        if(!username.isEmpty() && !password.isEmpty()){
+            if(foundUser!= null){
+                System.out.println("User Exists");
+                pum.showInformationDialog("Login Successful", "User exists", "Please wait while we log you in.");
+                this.saveUserSess(foundUser);
+                rsu = new RunSimpleUsers();
+                rsu.switchScene("/home/HomePage.fxml");
+            }
+            else{
+                System.out.println("User not Exist");
+                pum.showInformationDialog("Login Error", "User does not exist", "Please check whether username or password is correct.");
+            }
         }
-                
         else{
-            System.out.println("User not Exist");
+            pum.showInformationDialog("Empty Login Fields", "Login Fields Empty", "Please fill in all fields.");
         }
+        
     }
         
     

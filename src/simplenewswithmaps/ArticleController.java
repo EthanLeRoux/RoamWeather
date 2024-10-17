@@ -127,19 +127,6 @@ public class ArticleController {
         }
     }
     
-//    @FXML
-//    void readArticle(String url){
-//        String inputTitle = listNews.getSelectionModel().getSelectedItems().toString();
-//        System.out.println(inputTitle);
-////        String newLink ="";
-////        for (int i = 0; i < relatedQuestionsList.size(); i++) {
-////            if (relatedQuestionsList.get(i).getTitle().equals(inputTitle)) {
-////                newLink = relatedQuestionsList.get(i).getLink();
-////                break; // Exit loop once the element is found
-////            }
-////        }
-////        openWebpage(newLink);
-//    }
     
 @FXML
 void readArticle() {
