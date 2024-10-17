@@ -65,6 +65,10 @@ public class HomePageController implements Initializable {
     MenuItem miDutch;
 
     @FXML
+    Button btnMetric,
+            btnImperial,
+            btnStandard;
+    @FXML
     Label lblCity,
             lblDate,
             lblFl,
@@ -145,8 +149,31 @@ public class HomePageController implements Initializable {
         } catch (Exception ex) {
             Logger.getLogger(HomePageController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        btnMetric.setOnMousePressed(e -> {
+            btnMetric.setStyle("-fx-background-color: #f737f1; -fx-text-fill: white;");
+        });
+
+        btnMetric.setOnMouseReleased(e -> {
+            btnMetric.setStyle("-fx-background-color: #2b93f3; -fx-text-fill: white;");
+        });
+
+        btnImperial.setOnMousePressed(e -> {
+            btnImperial.setStyle("-fx-background-color: #f737f1; -fx-text-fill: white;");
+        });
+
+        btnImperial.setOnMouseReleased(e -> {
+            btnImperial.setStyle("-fx-background-color: #2b93f3; -fx-text-fill: white;");
+        });
+
+        btnStandard.setOnMousePressed(e -> {
+            btnStandard.setStyle("-fx-background-color: #f737f1; -fx-text-fill: white;");
+        });
+
+        btnStandard.setOnMouseReleased(e -> {
+            btnStandard.setStyle("-fx-background-color: #2b93f3; -fx-text-fill: white;");
+        });
     }
-    
+
     // Instance variables for city and units
     // Example default city, you can modify it based on user input
     private String units = "metric"; // Default unit is metric (Celsius)
@@ -163,10 +190,14 @@ public class HomePageController implements Initializable {
         lblCity.setText(weatherRoot.city.name);
 
         // Update the weather details (temperature, description, etc.) with imperial units
-//    String temp = String.format("%.2f", weatherRoot.list.get(0).getMain().getTemp()) + "°F";
-//    String feelsLike = String.format("%.2f", weatherRoot.list.get(0).getMain().getFeelsLike()) + "°F";
-//    lblTemp.setText(temp);
-//    lblFl.setText( feelsLike);
+        String temps = String.format("%.2f", weatherRoot.list.get(0).getMain().getTemp()) + getUnitSymbol("imperial");
+        String feelsLikes = String.format("%.2f", weatherRoot.list.get(0).getMain().getFeelsLike()) + getUnitSymbol("imperial");
+        String tempMin = String.format("%.2f", weatherRoot.list.get(0).getMain().getTempMin()) + getUnitSymbol("imperial");
+        String tempMax = String.format("%.2f", weatherRoot.list.get(0).getMain().getTempMax()) + getUnitSymbol("imperial");
+        lblTemp.setText(temps);
+        lblFl.setText(feelsLikes);
+        lblMax.setText(tempMax);
+        lblMin.setText(tempMin);
         Label[] forecastLabels = {lblDay1, lblDay2, lblDay3, lblDay4, lblDay5};
 
         for (int i = 0; i < 5; i++) {  // Only the first 5 days
@@ -207,12 +238,14 @@ public class HomePageController implements Initializable {
         // Set city name on the label
         lblCity.setText(weatherRoot.city.name);
 
-        // Update the weather details (temperature, description, etc.) with metric units
-//    String temp = String.format("%.2f", weatherRoot.list.get(0).getMain().getTemp()) + "°C";
-//    String feelsLike = String.format("%.2f", weatherRoot.list.get(0).getMain().getFeelsLike()) + "°C";
-//    lblTemp.setText(temp);
-//    lblFl.setText(feelsLike);
-//    lblDesc.setText(weatherRoot.list.get(0).getWeather().get(0).getDescription());
+        String temps = String.format("%.2f", weatherRoot.list.get(0).getMain().getTemp()) + getUnitSymbol("metric");
+        String feelsLikes = String.format("%.2f", weatherRoot.list.get(0).getMain().getFeelsLike()) + getUnitSymbol("metric");
+        String tempMin = String.format("%.2f", weatherRoot.list.get(0).getMain().getTempMin()) + getUnitSymbol("metric");
+        String tempMax = String.format("%.2f", weatherRoot.list.get(0).getMain().getTempMax()) + getUnitSymbol("metric");
+        lblTemp.setText(temps);
+        lblFl.setText(feelsLikes);
+        lblMax.setText(tempMax);
+        lblMin.setText(tempMin);
         Label[] forecastLabels = {lblDay1, lblDay2, lblDay3, lblDay4, lblDay5};
 
         for (int i = 0; i < 5; i++) {  // Only the first 5 days
@@ -250,13 +283,14 @@ public class HomePageController implements Initializable {
 
         // Set city name on the label
         lblCity.setText(weatherRoot.city.name);
-
-        // Update the weather details (temperature, description, etc.) with standard units
-//    String temp = String.format("%.2f", weatherRoot.list.get(0).getMain().getTemp()) + "K";
-//    String feelsLike = String.format("%.2f", weatherRoot.list.get(0).getMain().getFeelsLike()) + "K";
-//    lblTemp.setText(temp);
-//    lblFl.setText(feelsLike);
-//    lblDesc.setText(weatherRoot.list.get(0).getWeather().get(0).getDescription());
+        String temps = String.format("%.2f", weatherRoot.list.get(0).getMain().getTemp()) + getUnitSymbol("standard");
+        String feelsLikes = String.format("%.2f", weatherRoot.list.get(0).getMain().getFeelsLike()) + getUnitSymbol("standard");
+        String tempMin = String.format("%.2f", weatherRoot.list.get(0).getMain().getTempMin()) + getUnitSymbol("standard");
+        String tempMax = String.format("%.2f", weatherRoot.list.get(0).getMain().getTempMax()) + getUnitSymbol("standard");
+        lblTemp.setText(temps);
+        lblFl.setText(feelsLikes);
+        lblMax.setText(tempMax);
+        lblMin.setText(tempMin);
         Label[] forecastLabels = {lblDay1, lblDay2, lblDay3, lblDay4, lblDay5};
 
         for (int i = 0; i < 5; i++) {  // Only the first 5 days
@@ -302,8 +336,8 @@ public class HomePageController implements Initializable {
         RunSimpleUsers rs = new RunSimpleUsers();
         rs.switchScene("/simplereviews2/reviews.fxml");
     }
-    
-     @FXML
+
+    @FXML
     public void switchSceneProfile() throws IOException {
         RunSimpleUsers rs = new RunSimpleUsers();
         rs.switchScene("/simpleprofile/profile.fxml");
@@ -933,8 +967,8 @@ public class HomePageController implements Initializable {
                 return "°C"; // Celsius for metric and default
         }
     }
-    
-    private void writeCity(String city) throws IOException{
+
+    private void writeCity(String city) throws IOException {
         FileWriter fw = new FileWriter("city.txt");
         BufferedWriter bw = new BufferedWriter(fw);
         bw.write(city);

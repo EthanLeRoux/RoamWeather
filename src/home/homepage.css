@@ -1,7 +1,15 @@
-/*
- * Empty Stylesheet file.
- */
+/* Default button style */
+.button {
+    -fx-background-color: #2b93f3;
+    -fx-text-fill: white;
+}
 
-.mainFxmlClass {
+/* Highlight when button is pressed */
+.button:pressed {
+    -fx-background-color: #f737f1;
+}
 
+/* Optional: Hover effect */
+.button:hover {
+    -fx-background-color: #f737f1;
 }

@@ -7,23 +7,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="simpleprofile.ProfileController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2b93f3;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="simpleprofile.ProfileController">
    <children>
-      <Label layoutX="249.0" layoutY="14.0" text="Profile">
+      <Label layoutX="249.0" layoutY="14.0" text="Profile" textFill="WHITE">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
       <ImageView fx:id="imgQR" fitHeight="150.0" fitWidth="200.0" layoutX="22.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="14.0" layoutY="67.0" text="Scan the code to get your OTP">
+      <Label layoutX="14.0" layoutY="67.0" text="Scan the code to get your OTP" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="22.0" layoutY="248.0" prefHeight="53.0" prefWidth="127.0" text="Scan the code in: Microsoft Authenticator Google Authenticator" textAlignment="CENTER" wrapText="true" />
-      <Label layoutX="22.0" layoutY="311.0" text="Or manually enter the key:" textAlignment="CENTER" />
-      <Label fx:id="lblSecretKey" layoutX="22.0" layoutY="328.0" prefHeight="17.0" prefWidth="138.0" text="Secret Key" />
-      <Label fx:id="lblUsername" layoutX="383.0" layoutY="67.0" text="Username">
+      <Label layoutX="22.0" layoutY="248.0" prefHeight="53.0" prefWidth="127.0" text="Scan the code in: Microsoft Authenticator Google Authenticator" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+      <Label layoutX="22.0" layoutY="311.0" text="Or manually enter the key:" textAlignment="CENTER" textFill="WHITE" />
+      <Label fx:id="lblSecretKey" layoutX="22.0" layoutY="328.0" prefHeight="17.0" prefWidth="138.0" text="Secret Key" textFill="WHITE" />
+      <Label fx:id="lblUsername" layoutX="383.0" layoutY="67.0" text="Username" textFill="WHITE">
          <font>
             <Font size="31.0" />
          </font>
@@ -33,7 +33,7 @@
             <Image url="@../resources/profile.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnForgotPass" layoutX="397.0" layoutY="275.0" mnemonicParsing="false" onAction="#forgotPass" onMouseClicked="#forgotPass" text="Change Password" />
+      <Button fx:id="btnForgotPass" layoutX="403.0" layoutY="298.0" mnemonicParsing="false" onAction="#forgotPass" onMouseClicked="#forgotPass" style="-fx-background-color: #1b7cd7;" text="Change Password" textFill="WHITE" />
       <ImageView fx:id="btnHome" fitHeight="37.0" fitWidth="40.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#switchSceneHome" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/back1.png" />

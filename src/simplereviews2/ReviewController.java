@@ -9,11 +9,14 @@ import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import simpleposts.PopUpMessage;
 import simpleusers.DbDAO;
 import simpleusers.RunSimpleUsers;
 import weathergen.WeatherGen;
@@ -48,6 +51,8 @@ public class ReviewController {
 
     ReviewDAO dao;
 
+        PopUpMessage pum;
+
     Root fc;
     String city;
 
@@ -64,24 +69,52 @@ public class ReviewController {
     }
 
     public void addReview() throws IOException, SQLException, Exception {
-        //comboItems();
-        dao = new ReviewDAO();
-        WeatherFace.Root weatherRoot;
+    pum = new PopUpMessage();
+    dao = new ReviewDAO();
+    WeatherFace.Root weatherRoot;
 
-        String textcity = txtCity.getText();
+    String textcity = txtCity.getText();
+
+    try {
+        // Fetch weather data for the entered city
         weatherRoot = WeatherGen.fetchWeatherData(textcity, "metric");
 
         int userRating = Integer.parseInt(comboBox.getSelectionModel().getSelectedItem().toString());
         String reviewContent = txtReview.getText();
         int userId = getUserId();
 
-    Review newReview = new Review(userId, textcity, reviewContent, userRating);
+        // Create and add the review
+        Review newReview = new Review(userId, textcity, reviewContent, userRating);
         dao.addReview(newReview, textcity);
 
-        System.out.println("execcuted add!");
+        System.out.println("Executed add!");
         getAll();
-    }
 
+    } catch (IOException e) {
+        // Show a pop-up if the city isn't found or there is a network issue
+        pum.showErrorDialog("City Not Found", "Invalid City", "The city '" + textcity + "' could not be found or there was a network issue.");
+    } catch (Exception e) {
+        // Handle other exceptions
+        pum.showErrorDialog("City Not Found", "Invalid City", "The city '" + textcity + "' could not be found .");
+//        throw e; // Re-throw to let higher-level methods handle it
+    }
+}
+
+    
+    private void showErrorDialog(String title, String header, String content) {
+    Alert alert = new Alert(AlertType.ERROR);
+    alert.setTitle(title);
+    alert.setHeaderText(header);
+    alert.setContentText(content);
+    alert.showAndWait();
+}
+private void showErrorPopup(String errorMessage) {
+    Alert alert = new Alert(AlertType.ERROR);
+    alert.setTitle("Error");
+    alert.setHeaderText(null);
+    alert.setContentText(errorMessage);
+    alert.showAndWait();
+}
     public void getAll() throws SQLException {
 
         dao = new ReviewDAO();

@@ -175,7 +175,7 @@
       </Pane>
       <HBox alignment="CENTER" layoutX="425.0" layoutY="30.0" prefHeight="54.0" prefWidth="349.0">
          <children>
-            <TextField fx:id="txtCity" alignment="BOTTOM_CENTER" onAction="#today" prefHeight="24.0" prefWidth="288.0" style="-fx-background-color: #202b3c;" />
+            <TextField fx:id="txtCity" alignment="BOTTOM_CENTER" onAction="#today" prefHeight="24.0" prefWidth="288.0" style="-fx-background-color: white;" />
           <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#today" style="-fx-background-color: #202b3c;" text="search" textFill="WHITE" />
          </children>
       </HBox>
