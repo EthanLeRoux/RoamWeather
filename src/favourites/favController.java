@@ -9,12 +9,15 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import simpleposts.PopUpMessage;
+import simpleusers.RunSimpleUsers;
+import weathergen.WeatherGen;
+import weatherlib.WeatherFace;
 
 /**
  *
@@ -37,17 +40,37 @@ public class favController {
     @FXML
     ListView<String> City_List;
 
+    @FXML
+    Button btnSearch;
+    
     CrudOperator dao = new CrudOperator();
     
-
+    @FXML
+    String searchCity(){
+        String city = searchTxt.getText();
+        try {
+            WeatherFace.Root weatherRoot = WeatherGen.fetchWeatherData(city, "metric");
+            return city;
+        } catch (Exception ex) {
+            PopUpMessage pum = new PopUpMessage();
+            pum.showErrorDialog("City name error", "City Does Not Exist Error", "City entered does not exist. Please enter a valid city name.");
+        }
+        return null;
+    }
+    
     public void add() throws FileNotFoundException,IOException,SQLException {
-
       FileReader  fr = new FileReader("user.txt");
        BufferedReader br = new BufferedReader(fr);
         int userId = Integer.parseInt(br.readLine());
         //searchTxt = new TextField();
         //City_List = new ListView<String>();
-        String City = searchTxt.getText();
+        String search = searchCity();
+        String City = "";
+        if(search != null){
+            City = searchTxt.getText();
+        }
+        
+        
         if (City == null || City.isEmpty()) {
         System.out.println("City name is empty or null.");//
         return;
@@ -147,6 +170,13 @@ public class favController {
         throw new IllegalArgumentException("favId is not a valid integer", e);
     }
 }
+    
+    @FXML
+    public void switchSceneHome() throws IOException{
+        RunSimpleUsers rs = new RunSimpleUsers();
+        //rs.switchScene("simepleposts/scnPosts.fxml");
+        rs.switchScene("/home/HomePage.fxml");
+    }
 
 }
     
