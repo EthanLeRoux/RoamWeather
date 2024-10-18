@@ -33,11 +33,13 @@
             <Image url="@../resources/profile.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnForgotPass" layoutX="403.0" layoutY="298.0" mnemonicParsing="false" onAction="#forgotPass" onMouseClicked="#forgotPass" style="-fx-background-color: #1b7cd7;" text="Change Password" textFill="WHITE" />
+      <Button fx:id="btnForgotPass" layoutX="348.0" layoutY="299.0" mnemonicParsing="false" onAction="#forgotPass" onMouseClicked="#forgotPass" style="-fx-background-color: #1b7cd7;" text="Change Password" textFill="WHITE" />
       <ImageView fx:id="btnHome" fitHeight="37.0" fitWidth="40.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#switchSceneHome" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/back1.png" />
          </image>
       </ImageView>
+      <Button fx:id="btnDeleteAccount" layoutX="472.0" layoutY="299.0" mnemonicParsing="false" onAction="#switchSceneDelete" onMouseClicked="#forgotPass" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #1b7cd7;" text="Delete Account" textFill="WHITE" />
+      <Button layoutX="417.0" layoutY="345.0" mnemonicParsing="false" onAction="#switchSceneLogin" onMouseClicked="#forgotPass" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #1b7cd7;" text="Log Out" textFill="WHITE" />
    </children>
 </AnchorPane>

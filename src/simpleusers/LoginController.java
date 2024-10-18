@@ -91,7 +91,7 @@ public class LoginController {
     public void initialize() throws FileNotFoundException{
 }
     
-        @FXML
+    @FXML
     public void switchSceneSignup() throws IOException{
         RunSimpleUsers rs = new RunSimpleUsers();
         rs.switchScene("/simpleusers/signup.fxml");

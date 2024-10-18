@@ -50,6 +50,7 @@ public class OTPController {
     RunSimpleUsers rsu;
     PopUpMessage pum;
     String secretKey;
+    int userId;
     TwoFactorAuth tfa;
     DbDAO dao;
     FileReader fr;
@@ -60,13 +61,14 @@ public class OTPController {
         dao = new DbDAO();
         fr = new FileReader("user.txt");
         br = new BufferedReader(fr);
-        int userId = Integer.parseInt(br.readLine());
+        userId = Integer.parseInt(br.readLine());
         String email2 = dao.getUserEmailById(userId);
     }
     
-    public void checkCode(){
+    public void checkCode() throws SQLException{
         pum = new PopUpMessage();
         String code = txtOtpCode.getText();
+        secretKey = dao.getUserKey(userId);
                 if (code.equals(getTOTPCode(secretKey))) {
                     System.out.println("Logged in successfully");
                     pum.showInformationDialog("Correct OTP Code", "Correct OTP Code", "Correct OTP Code");

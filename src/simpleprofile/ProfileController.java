@@ -85,4 +85,21 @@ public class ProfileController {
         RunSimpleUsers rs = new RunSimpleUsers();
         rs.switchScene("/home/HomePage.fxml");
     }
+    
+    @FXML
+    void switchSceneLogin() throws IOException {
+    RunSimpleUsers rs = new RunSimpleUsers();
+    pum = new PopUpMessage();
+    boolean confirmed = pum.showConfirmationDialog("Log Out", "Confirm Log Out", "Are you sure you want to log out?");
+    if (confirmed) {
+        rs.switchScene("/simpleusers/login.fxml");
+    }
+}
+
+    
+    @FXML
+    void switchSceneDelete() throws IOException{
+        RunSimpleUsers rs = new RunSimpleUsers();
+        rs.switchScene("/deleteAccount/deleteaccount.fxml");
+    }
 }

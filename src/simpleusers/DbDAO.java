@@ -267,5 +267,75 @@ public String getUserEmailById(int userId) throws SQLException {
     return userEmail;  // Return the user's email
 }
 
+public void deleteUser(int userId) throws SQLException {
+    conn = new DBConnection();
+    
+    // SQL delete statement to remove the user based on user_id
+    String delete_user_stmt = "DELETE FROM users WHERE user_id = ?";
+    
+    // Use PreparedStatement to safely delete the user
+    PreparedStatement pstmt = conn.getConn().prepareStatement(delete_user_stmt);
+    pstmt.setInt(1, userId);  // Set user_id to identify the user to delete
+    
+    // Execute the delete statement
+    int rowsDeleted = pstmt.executeUpdate();
+    
+    // Check if any rows were deleted
+    if (rowsDeleted > 0) {
+        System.out.println("User with ID " + userId + " deleted successfully.");
+    } else {
+        System.out.println("No user found with the ID: " + userId);
+    }
+    
+    // Close the PreparedStatement
+    pstmt.close();
+}
 
+public void deleteUserById(int userId) throws SQLException {
+    conn = new DBConnection();
+        String deleteReviewsSQL = "DELETE FROM reviews WHERE user_id = ?";
+        String deleteArticlesSQL = "DELETE FROM articles WHERE user_id = ?";
+        String deleteEventsSQL = "DELETE FROM events WHERE user_id = ?";
+        String deletePostsSQL = "DELETE FROM posts WHERE user_id = ?";
+        String deleteFavouritesSQL = "DELETE FROM favourites WHERE user_id = ?";
+        String deleteSettingsSQL = "DELETE FROM settings WHERE user_id = ?";
+        String deleteUserSQL = "DELETE FROM users WHERE user_id = ?";
+
+        // Delete from dependent tables first
+             PreparedStatement deleteReviewsStmt = conn.getConn().prepareStatement(deleteReviewsSQL);
+             PreparedStatement deleteArticlesStmt = conn.getConn().prepareStatement(deleteArticlesSQL);
+             PreparedStatement deleteEventsStmt = conn.getConn().prepareStatement(deleteEventsSQL);
+             PreparedStatement deletePostsStmt = conn.getConn().prepareStatement(deletePostsSQL);
+             PreparedStatement deleteFavouritesStmt = conn.getConn().prepareStatement(deleteFavouritesSQL);
+             PreparedStatement deleteSettingsStmt = conn.getConn().prepareStatement(deleteSettingsSQL);
+             PreparedStatement deleteUserStmt = conn.getConn().prepareStatement(deleteUserSQL);
+
+            // Deleting reviews
+            deleteReviewsStmt.setInt(1, userId);
+            deleteReviewsStmt.executeUpdate();
+
+            // Deleting articles
+            deleteArticlesStmt.setInt(1, userId);
+            deleteArticlesStmt.executeUpdate();
+
+            // Deleting events
+            deleteEventsStmt.setInt(1, userId);
+            deleteEventsStmt.executeUpdate();
+
+            // Deleting posts
+            deletePostsStmt.setInt(1, userId);
+            deletePostsStmt.executeUpdate();
+
+            // Deleting favourites
+            deleteFavouritesStmt.setInt(1, userId);
+            deleteFavouritesStmt.executeUpdate();
+
+            // Deleting settings
+            deleteSettingsStmt.setInt(1, userId);
+            deleteSettingsStmt.executeUpdate();
+
+            // Finally, delete the user record
+            deleteUserStmt.setInt(1, userId);
+            deleteUserStmt.executeUpdate();
+    }
 }

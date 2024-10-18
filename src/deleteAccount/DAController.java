@@ -2,11 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package simpleForgotPassword;
+package deleteAccount;
 
 import com.google.zxing.WriterException;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -15,10 +14,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import static simpleForgotPassword.TwoFactorAuth.createQRCode;
-import static simpleForgotPassword.TwoFactorAuth.getGoogleAuthenticatorBarCode;
+import simpleForgotPassword.TwoFactorAuth;
 import static simpleForgotPassword.TwoFactorAuth.getTOTPCode;
 import simpleposts.PopUpMessage;
 import simpleusers.DbDAO;
@@ -28,7 +25,7 @@ import simpleusers.RunSimpleUsers;
  *
  * @author ethan
  */
-public class OTPChangeController {
+public class DAController {
     @FXML 
     ImageView imgQR;
     
@@ -81,23 +78,25 @@ public class OTPChangeController {
     }
     
     @FXML
-    public void switchSceneProfile() throws IOException, SQLException{
-        RunSimpleUsers rs = new RunSimpleUsers();
-        rs.switchScene("/simpleprofile/profile.fxml");
-    }
-    
-    @FXML
-    void changePassword() throws FileNotFoundException, IOException, SQLException{
+    void deleteAcc() throws FileNotFoundException, IOException, SQLException{
         dao = new DbDAO();
         fr = new FileReader("user.txt");
         br = new BufferedReader(fr);
         pum = new PopUpMessage();
         int userId = Integer.parseInt(br.readLine());
         
-        String newPass = txtNewPassword.getText();
-        dao.updateUserPassword(userId, newPass);
-        pum.showInformationDialog("Password Changed", "Password Changed", "Password Changed");
-        switchSceneProfile();
+        if(btnEnter.isVisible()==false){
+           pum.showConfirmationDialog("Account Deletion", "Confirm Deletion", "Do you want to delete your account?");
+           dao.deleteUser(userId);
+            dao.deleteUser(userId);
+            switchSceneBackToLogin(); 
+        }
+        else{
+            pum.showErrorDialog("Incomplete Verification", "Incomplete OTP Code Entry", "Please enter a otp code from your authenticator app.");
+        }
+        
+        
+        
     }
     
     @FXML
@@ -105,4 +104,11 @@ public class OTPChangeController {
         RunSimpleUsers rs = new RunSimpleUsers();
         rs.switchScene("/simpleusers/login.fxml");
     }
+    
+    @FXML
+    public void switchSceneBackToHome() throws IOException{
+        RunSimpleUsers rs = new RunSimpleUsers();
+        rs.switchScene("/home/HomePage.fxml");
+    }
 }
+ 

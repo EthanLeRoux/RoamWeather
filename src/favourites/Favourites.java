@@ -50,12 +50,7 @@ public class Favourites {
 
     @Override
     public String toString() {
-        return "Favourites{" + "city_name=" + city_name + ", user_id=" + user_id + ", favId=" + favId + '}';
+        return city_name;
     }
-
-   
-   
-  
-   
     
 }
