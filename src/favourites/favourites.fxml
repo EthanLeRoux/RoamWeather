@@ -16,12 +16,12 @@
       <Button id="deleteBtn" layoutX="281.0" layoutY="343.0" mnemonicParsing="false" onAction="#delete" prefHeight="43.0" prefWidth="78.0" style="-fx-background-color: #216eb5;" text="DELETE" textFill="WHITE" />
       <Button id="addBtn" layoutX="36.0" layoutY="343.0" mnemonicParsing="false" onAction="#add" prefHeight="43.0" prefWidth="78.0" style="-fx-background-color: #216eb5;" text="ADD" textFill="WHITE" />
       <TextField id="searchTxt" fx:id="searchTxt" layoutX="240.0" layoutY="54.0" prefHeight="35.0" prefWidth="159.0" promptText="search city" />
-      <Label fx:id="lblFav" alignment="CENTER" layoutX="230.0" layoutY="14.0" prefHeight="35.0" prefWidth="141.0" text="Favourites">
+      <Label fx:id="lblFav" alignment="CENTER" layoutX="230.0" layoutY="14.0" prefHeight="35.0" prefWidth="141.0" text="Favourites" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <ImageView fitHeight="65.0" fitWidth="80.0" layoutX="3.0" layoutY="6.0" onMouseClicked="#switchSceneHome" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="37.0" fitWidth="40.0" layoutX="3.0" layoutY="6.0" onMouseClicked="#switchSceneHome" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/back1.png" />
          </image>

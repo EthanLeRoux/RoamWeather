@@ -85,6 +85,11 @@ public class OTPChangeController {
         RunSimpleUsers rs = new RunSimpleUsers();
         rs.switchScene("/simpleprofile/profile.fxml");
     }
+    @FXML
+    public void switchSceneProfiled() throws IOException, SQLException{
+        RunSimpleUsers rs = new RunSimpleUsers();
+        rs.switchScene("/simpleprofile/profile_1.fxml");
+    }
     
     @FXML
     void changePassword() throws FileNotFoundException, IOException, SQLException{

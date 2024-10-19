@@ -110,5 +110,11 @@ public class DAController {
         RunSimpleUsers rs = new RunSimpleUsers();
         rs.switchScene("/home/HomePage.fxml");
     }
+   
+    @FXML
+    public void switchSceneBackToHomeD() throws IOException{
+        RunSimpleUsers rs = new RunSimpleUsers();
+        rs.switchScene("/home/HomePageDark.fxml");
+    }
 }
  

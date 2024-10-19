@@ -11,21 +11,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2b93f3;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="simplereviews2.ReviewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0b121e;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="simplereviews2.ReviewController">
    <children>
       <ListView fx:id="listReviews" layoutX="34.0" layoutY="65.0" prefHeight="200.0" prefWidth="530.0" />
-      <Button fx:id="btnAddReview" layoutX="474.0" layoutY="323.0" mnemonicParsing="false" onAction="#addReview" prefHeight="52.0" prefWidth="114.0" style="-fx-background-color: #1b7cd7;" text="Post" textFill="WHITE" />
+      <Button fx:id="btnAddReview" layoutX="474.0" layoutY="323.0" mnemonicParsing="false" onAction="#addReview" prefHeight="52.0" prefWidth="114.0" style="-fx-background-color: #202b3c;" text="Post" textFill="WHITE" />
       <Button fx:id="btnDeleteReview" layoutX="474.0" layoutY="286.0" mnemonicParsing="false" onAction="#deleteReview" style="-fx-background-color: red;" text="Delete" textFill="WHITE" />
       <TextField fx:id="txtCity" layoutX="34.0" layoutY="286.0" promptText="Enter City Name" />
       <ComboBox fx:id="comboBox" layoutX="229.0" layoutY="286.0" prefHeight="26.0" prefWidth="78.0" promptText="Rating" style="-fx-background-color: white;" />
       <TextArea fx:id="txtReview" layoutX="34.0" layoutY="323.0" prefHeight="52.0" prefWidth="430.0" promptText="Write Review" />
-      <Button fx:id="btnUpdateReview" layoutX="546.0" layoutY="286.0" mnemonicParsing="false" onAction="#updateReview" style="-fx-background-color: #1b7cd7;" text="Edit" textFill="WHITE" />
+      <Button fx:id="btnUpdateReview" layoutX="546.0" layoutY="286.0" mnemonicParsing="false" onAction="#updateReview" style="-fx-background-color: #202b3c;" text="Edit" textFill="WHITE" />
       <Label layoutX="246.0" layoutY="22.0" text="CIty Reviews" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <ImageView fitHeight="150.0" fitWidth="40.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#switchScene" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="37.0" fitWidth="40.0" layoutX="16.0" layoutY="21.0" onMouseClicked="#switchScened" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/back1.png" />
          </image>

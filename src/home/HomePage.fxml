@@ -22,27 +22,27 @@
          <children>
             <Label fx:id="lblMaximum" layoutX="17.0" layoutY="24.0" text="Max Tempreture" textFill="WHITE">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font></Label>
             <Label fx:id="lblMinimum" layoutX="14.0" layoutY="136.0" text="Min Tempreture" textFill="WHITE">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font></Label>
             <Label fx:id="lblFeelsLike" layoutX="180.0" layoutY="24.0" text="Feels Like" textFill="WHITE">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font></Label>
             <Label fx:id="lblHumidity" layoutX="180.0" layoutY="136.0" text="Humidity" textFill="WHITE">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font></Label>
             <Label fx:id="lblSunset" layoutX="356.0" layoutY="135.0" text="Sunset Time" textFill="WHITE">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font></Label>
             <Label fx:id="lblSunrise" layoutX="356.0" layoutY="24.0" text="Sunrise Time" textFill="WHITE">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font></Label>
             <Label fx:id="lblRise" layoutX="360.0" layoutY="56.0" text="lblRise" textFill="WHITE">
                <font>
@@ -76,7 +76,7 @@
             <ListView fx:id="listReviews" layoutX="17.0" layoutY="44.0" prefHeight="170.0" prefWidth="353.0" style="-fx-background-color: white; -fx-background-radius: 10;" />
             <Label fx:id="lblCityReview" layoutX="17.0" layoutY="14.0" text="City Review" textFill="WHITE">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
          </children></Pane>
@@ -90,7 +90,7 @@
             </Label>
             <Label fx:id="lbl5DayForecast" layoutX="14.0" layoutY="14.0" text="5 Day Forecast" textFill="WHITE">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
             <Label fx:id="lblDay1" layoutX="14.0" layoutY="50.0" text="0" textFill="WHITE">
@@ -146,7 +146,7 @@
          <children>
             <Label fx:id="lblToday" layoutX="15.0" layoutY="14.0" text="Today" textFill="WHITE">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font></Label>
             <Label fx:id="lblTemp" layoutX="12.0" layoutY="42.0" prefHeight="70.0" prefWidth="211.0" style="-fx-background-radius: 20;" text="0" textFill="WHITE">
                <font>
@@ -155,15 +155,15 @@
             </Label>
             <Label fx:id="lblDate" layoutX="75.0" layoutY="14.0" text="lblDate" textFill="WHITE">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font></Label>
             <Label fx:id="lblCity" layoutX="14.0" layoutY="112.0" text="lblCity" textFill="WHITE">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font></Label>
             <Label fx:id="lblDesc" layoutX="12.0" layoutY="139.0" text="description" textFill="WHITE">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font></Label>
             <Separator layoutX="17.0" layoutY="102.0" prefHeight="10.0" prefWidth="200.0" />
             <ImageView fx:id="icon" fitHeight="54.0" fitWidth="68.0" layoutX="17.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">

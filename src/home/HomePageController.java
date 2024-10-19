@@ -154,7 +154,7 @@ public class HomePageController implements Initializable {
             Logger.getLogger(HomePageController.class.getName()).log(Level.SEVERE, null, ex);
         }
         btnMetric.setOnMousePressed(e -> {
-            btnMetric.setStyle("-fx-background-color: #f737f1; -fx-text-fill: white;");
+            btnMetric.setStyle("-fx-background-color: #FFFFFF; -fx-text-fill: white;");
         });
 
         btnMetric.setOnMouseReleased(e -> {
@@ -162,7 +162,7 @@ public class HomePageController implements Initializable {
         });
 
         btnImperial.setOnMousePressed(e -> {
-            btnImperial.setStyle("-fx-background-color: #f737f1; -fx-text-fill: white;");
+            btnImperial.setStyle("-fx-background-color: #FFFFFF; -fx-text-fill: white;");
         });
 
         btnImperial.setOnMouseReleased(e -> {
@@ -170,7 +170,7 @@ public class HomePageController implements Initializable {
         });
 
         btnStandard.setOnMousePressed(e -> {
-            btnStandard.setStyle("-fx-background-color: #f737f1; -fx-text-fill: white;");
+            btnStandard.setStyle("-fx-background-color: #FFFFFF; -fx-text-fill: white;");
         });
 
         btnStandard.setOnMouseReleased(e -> {
@@ -352,24 +352,35 @@ public class HomePageController implements Initializable {
         RunSimpleUsers rs = new RunSimpleUsers();
         rs.switchScene("/favourites/favourites.fxml");
     }
-
     @FXML
-    public void switchSceneSet() throws IOException {
+    public void switchSceneRevd() throws IOException {
         RunSimpleUsers rs = new RunSimpleUsers();
-        rs.switchScene("/simpleSettings/Settings.fxml");
+        rs.switchScene("/simplereviews2/reviews_1.fxml");
     }
 
     @FXML
-    public void switchSceneNews() throws IOException {
+    public void switchSceneProfiled() throws IOException {
         RunSimpleUsers rs = new RunSimpleUsers();
-        rs.switchScene("/simplenewswithmaps/articles.fxml");
+        rs.switchScene("/simpleprofile/profile_1.fxml");
     }
 
+    @FXML
+    public void switchSceneFavd() throws IOException {
+        RunSimpleUsers rs = new RunSimpleUsers();
+        rs.switchScene("/favourites/favourites_1.fxml");
+    }
     @FXML
     public void switchSceneForum() throws IOException {
         RunSimpleUsers rs = new RunSimpleUsers();
         rs.switchScene("/simpleposts/scnPosts.fxml");
     }
+
+    @FXML
+    public void switchSceneForumd() throws IOException {
+        RunSimpleUsers rs = new RunSimpleUsers();
+        rs.switchScene("/simpleposts/scnPosts_1.fxml");
+    }
+
 
     public void getAll() throws SQLException {
 

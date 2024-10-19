@@ -38,6 +38,18 @@ public class ChangePasswordController {
         rs.switchScene("/simpleprofile/profile.fxml");
     }
     
+    public void switchSceneOTPd() throws IOException, SQLException{
+        writeForgotEmail();
+        RunSimpleUsers rs = new RunSimpleUsers();
+        rs.switchScene("/simpleForgotPassword/OTPChangePassword_1.fxml");
+    }
+    
+    @FXML
+    public void switchSceneProfiled() throws IOException, SQLException{
+        RunSimpleUsers rs = new RunSimpleUsers();
+        rs.switchScene("/simpleprofile/profile_1.fxml");
+    }
+    
     public void writeForgotEmail() throws IOException, SQLException{
         fw = new FileWriter("email.txt");
         bw = new BufferedWriter(fw);

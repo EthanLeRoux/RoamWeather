@@ -100,6 +100,34 @@ public class ProfileController {
     @FXML
     void switchSceneDelete() throws IOException{
         RunSimpleUsers rs = new RunSimpleUsers();
-        rs.switchScene("/deleteAccount/deleteaccount.fxml");
+        rs.switchScene("/deleteAccount/deleteaccount_1.fxml");
+    }
+    @FXML
+    void forgotPassd() throws IOException{
+        RunSimpleUsers rs = new RunSimpleUsers();
+        rs.switchScene("/simpleForgotPassword/ChangePassword_1.fxml");
+    }
+    
+    @FXML
+    void switchSceneHomed() throws IOException{
+        RunSimpleUsers rs = new RunSimpleUsers();
+        rs.switchScene("/home/HomePageDark.fxml");
+    }
+    
+    @FXML
+    void switchSceneLogind() throws IOException {
+    RunSimpleUsers rs = new RunSimpleUsers();
+    pum = new PopUpMessage();
+    boolean confirmed = pum.showConfirmationDialog("Log Out", "Confirm Log Out", "Are you sure you want to log out?");
+    if (confirmed) {
+        rs.switchScene("/simpleusers/login_1.fxml");
+    }
+}
+
+    
+    @FXML
+    void switchSceneDeleted() throws IOException{
+        RunSimpleUsers rs = new RunSimpleUsers();
+        rs.switchScene("/deleteAccount/deleteaccount_1.fxml");
     }
 }

@@ -67,6 +67,12 @@ public class ReviewController {
         RunSimpleUsers rs = new RunSimpleUsers();
         rs.switchScene("/home/HomePage.fxml");
     }
+    
+    @FXML
+    public void switchScened() throws IOException {
+        RunSimpleUsers rs = new RunSimpleUsers();
+        rs.switchScene("/home/HomePageDark.fxml");
+    }
 
     public void addReview() throws IOException, SQLException, Exception {
     pum = new PopUpMessage();

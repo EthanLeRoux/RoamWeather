@@ -31,6 +31,12 @@ public class ForgotPasswordController {
         RunSimpleUsers rs = new RunSimpleUsers();
         rs.switchScene("/simpleForgotPassword/OTP.fxml");
     }
+    @FXML
+    public void switchSceneOTPd() throws IOException, SQLException{
+        writeForgotEmail();
+        RunSimpleUsers rs = new RunSimpleUsers();
+        rs.switchScene("/simpleForgotPassword/OTP_1.fxml");
+    }
     
     public void writeForgotEmail() throws IOException, SQLException{
         fw = new FileWriter("email.txt");
