@@ -127,7 +127,7 @@ public class HomePageController implements Initializable {
             iconDay4,
             iconDay5,
             iProfile,
-            iSettings,
+            logo,
             iFav,
             iForum,
             iEvents,
@@ -142,6 +142,7 @@ public class HomePageController implements Initializable {
 
         try {
             icons();
+                    Image logo = new Image("/resources/transparentLogoWhite.png");
 
             getAll();
             start();
@@ -400,18 +401,18 @@ public class HomePageController implements Initializable {
     public void icons() {
 //C:\Appdev\SimpleUsers\src\resources
         Image profile = new Image("/resources/profile.png");
-        Image settings = new Image("/resources/settings.png");
+//        Image settings = new Image("/resources/settings.png");
         Image fav = new Image("/resources/favorites.png");
         Image forum = new Image("/resources/forum.png");
-        Image events = new Image("/resources/events.png");
-        Image news = new Image("/resources/news.png");
+//        Image events = new Image("/resources/events.png");
+//        Image news = new Image("/resources/news.png");
 
         iProfile.setImage(profile);
-        iSettings.setImage(settings);
+//        iSettings.setImage(settings);
         iFav.setImage(fav);
         iForum.setImage(forum);
-        iEvents.setImage(events);
-        iNews.setImage(news);
+//        iEvents.setImage(events);
+//        iNews.setImage(news);
 
     }
 

@@ -16,13 +16,14 @@ import simpleposts.PostDAO;
  *
  * @author ethan
  */
+public class RunSimpleUsers extends Application {
 
-public class RunSimpleUsers extends Application{
     private static Stage primaryStage;
+
     /**
      * @param args the command line arguments
      */
-    
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -33,14 +34,17 @@ public class RunSimpleUsers extends Application{
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));//Change back to sign up after fixing posts page
         Scene scn = new Scene(root);
         primaryStage.setScene(scn);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
-    
-    public void switchScene(String fxml) throws IOException{
+
+    public void switchScene(String fxml) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource(fxml));
         Scene scn = new Scene(root);
         primaryStage.setScene(scn);
+        primaryStage.setResizable(false);
+
         primaryStage.show();
     }
-    
+
 }

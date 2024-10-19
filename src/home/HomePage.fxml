@@ -18,33 +18,33 @@
         <URL value="@homepage.css" />
     </stylesheets>
    <children>
-      <Pane layoutX="250.0" layoutY="81.0" prefHeight="260.0" prefWidth="520.0" style="-fx-background-color: #2b93f3; -fx-background-radius: 10;">
+      <Pane layoutX="256.0" layoutY="81.0" prefHeight="260.0" prefWidth="528.0" style="-fx-background-color: #2b93f3; -fx-background-radius: 10;">
          <children>
-            <Label fx:id="lblMaximum" layoutX="17.0" layoutY="24.0" text="max" textFill="WHITE">
+            <Label fx:id="lblMaximum" layoutX="17.0" layoutY="24.0" text="Max Tempreture" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label fx:id="lblMinimum" layoutX="14.0" layoutY="136.0" text="min" textFill="WHITE">
+            <Label fx:id="lblMinimum" layoutX="14.0" layoutY="136.0" text="Min Tempreture" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label fx:id="lblFeelsLike" layoutX="181.0" layoutY="33.0" text="feels like" textFill="WHITE">
+            <Label fx:id="lblFeelsLike" layoutX="180.0" layoutY="24.0" text="Feels Like" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label fx:id="lblHumidity" layoutX="180.0" layoutY="136.0" text="humidity" textFill="WHITE">
+            <Label fx:id="lblHumidity" layoutX="180.0" layoutY="136.0" text="Humidity" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label fx:id="lblSunset" layoutX="349.0" layoutY="136.0" text="sunset" textFill="WHITE">
+            <Label fx:id="lblSunset" layoutX="356.0" layoutY="135.0" text="Sunset Time" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label fx:id="lblSunrise" layoutX="354.0" layoutY="37.0" text="sunrise" textFill="WHITE">
+            <Label fx:id="lblSunrise" layoutX="356.0" layoutY="24.0" text="Sunrise Time" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label fx:id="lblRise" layoutX="353.0" layoutY="57.0" text="lblRise" textFill="WHITE">
+            <Label fx:id="lblRise" layoutX="360.0" layoutY="56.0" text="lblRise" textFill="WHITE">
                <font>
                   <Font size="48.0" />
                </font></Label>
@@ -64,7 +64,7 @@
                <font>
                   <Font size="48.0" />
                </font></Label>
-            <Label fx:id="lblSet" layoutX="353.0" layoutY="167.0" text="lblSet" textFill="WHITE">
+            <Label fx:id="lblSet" layoutX="360.0" layoutY="166.0" text="lblSet" textFill="WHITE">
                <font>
                   <Font size="48.0" />
                </font></Label>
@@ -80,10 +80,10 @@
                </font>
             </Label>
          </children></Pane>
-      <Pane layoutX="14.0" layoutY="349.0" prefHeight="282.0" prefWidth="1160.0" style="-fx-background-color: #2b93f3; -fx-background-radius: 10;">
+      <Pane layoutX="14.0" layoutY="349.0" prefHeight="282.0" prefWidth="1227.0" style="-fx-background-color: #2b93f3; -fx-background-radius: 10;">
          <children>
-            <Separator layoutX="937.0" layoutY="58.0" orientation="VERTICAL" prefHeight="200.0" />
-            <Label fx:id="lblDay5" layoutX="945.0" layoutY="50.0" text="0" textFill="WHITE">
+            <Separator layoutX="971.0" layoutY="52.0" orientation="VERTICAL" prefHeight="200.0" />
+            <Label fx:id="lblDay5" layoutX="977.0" layoutY="50.0" text="0" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -93,45 +93,45 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblDay1" layoutX="4.0" layoutY="41.0" text="0" textFill="WHITE">
+            <Label fx:id="lblDay1" layoutX="14.0" layoutY="50.0" text="0" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Separator layoutX="236.0" layoutY="58.0" orientation="VERTICAL" prefHeight="200.0" />
-            <Label fx:id="lblDay4" layoutX="712.0" layoutY="46.0" text="0" textFill="WHITE">
+            <Separator layoutX="251.0" layoutY="52.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="1.0" />
+            <Label fx:id="lblDay4" layoutX="737.0" layoutY="50.0" text="0" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="lblDay3" layoutX="478.0" layoutY="48.0" text="0" textFill="WHITE">
+            <Label fx:id="lblDay3" layoutX="497.0" layoutY="50.0" text="0" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Separator layoutX="704.0" layoutY="64.0" orientation="VERTICAL" prefHeight="200.0" />
-            <Label fx:id="lblDay2" layoutX="251.0" layoutY="47.0" text="0" textFill="WHITE">
+            <Separator layoutX="731.0" layoutY="52.0" orientation="VERTICAL" prefHeight="200.0" />
+            <Label fx:id="lblDay2" layoutX="257.0" layoutY="50.0" text="0" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Separator layoutX="471.0" layoutY="54.0" orientation="VERTICAL" prefHeight="200.0" />
-            <ImageView fx:id="iconDay5" fitHeight="54.0" fitWidth="68.0" layoutX="949.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true">
+            <Separator layoutX="491.0" layoutY="52.0" orientation="VERTICAL" prefHeight="200.0" />
+            <ImageView fx:id="iconDay5" fitHeight="54.0" fitWidth="68.0" layoutX="977.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../Cavani%2321/CPUT/second%20year/PRT/pngtree-vector-cloud-icon-png-image_939423.jpg" />
                </image>
             </ImageView>
-            <ImageView fx:id="iconDay4" fitHeight="54.0" fitWidth="68.0" layoutX="722.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="iconDay4" fitHeight="54.0" fitWidth="68.0" layoutX="737.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../Cavani%2321/CPUT/second%20year/PRT/pngtree-vector-cloud-icon-png-image_939423.jpg" />
                </image>
             </ImageView>
-            <ImageView fx:id="iconDay3" fitHeight="54.0" fitWidth="68.0" layoutX="483.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="iconDay3" fitHeight="54.0" fitWidth="68.0" layoutX="497.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../Cavani%2321/CPUT/second%20year/PRT/pngtree-vector-cloud-icon-png-image_939423.jpg" />
                </image>
             </ImageView>
-            <ImageView fx:id="iconDay2" fitHeight="54.0" fitWidth="68.0" layoutX="251.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="iconDay2" fitHeight="54.0" fitWidth="68.0" layoutX="257.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../Cavani%2321/CPUT/second%20year/PRT/pngtree-vector-cloud-icon-png-image_939423.jpg" />
                </image>
@@ -173,53 +173,38 @@
             </ImageView>
          </children>
       </Pane>
-      <HBox alignment="CENTER" layoutX="425.0" layoutY="30.0" prefHeight="54.0" prefWidth="349.0">
+      <HBox alignment="CENTER" layoutX="425.0" layoutY="17.0" prefHeight="54.0" prefWidth="349.0">
          <children>
             <TextField fx:id="txtCity" alignment="BOTTOM_CENTER" onAction="#today" prefHeight="24.0" prefWidth="288.0" style="-fx-background-color: white;" />
           <Button fx:id="btnSearch" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#today" style="-fx-background-color: #2b93f3;" text="search" textFill="WHITE" />
          </children>
       </HBox>
-      <Pane layoutX="1181.0" layoutY="81.0" prefHeight="551.0" prefWidth="58.0" style="-fx-background-color: #2b93f3; -fx-background-radius: 10;">
+      <Pane layoutX="1181.0" layoutY="81.0" prefHeight="260.0" prefWidth="58.0" style="-fx-background-color: #2b93f3; -fx-background-radius: 10;">
          <children>
-            <ImageView fx:id="iProfile" fitHeight="54.0" fitWidth="68.0" layoutX="2.0" layoutY="37.0" onMouseClicked="#switchSceneProfile" onMousePressed="#switchSceneProfile" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="iProfile" fitHeight="54.0" fitWidth="68.0" layoutX="2.0" layoutY="49.0" onMouseClicked="#switchSceneProfile" onMousePressed="#switchSceneProfile" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../Cavani%2321/CPUT/second%20year/PRT/pngtree-vector-cloud-icon-png-image_939423.jpg" />
+                  <Image url="@../resources/profile.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="iSettings" fitHeight="54.0" fitWidth="68.0" layoutX="2.0" layoutY="114.0" onMouseClicked="#switchSceneSet" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="iFav" fitHeight="54.0" fitWidth="68.0" layoutX="2.0" layoutY="115.0" onMouseClicked="#switchSceneFav" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../Cavani%2321/CPUT/second%20year/PRT/pngtree-vector-cloud-icon-png-image_939423.jpg" />
+                  <Image url="@../resources/favorites.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="iFav" fitHeight="54.0" fitWidth="68.0" layoutX="2.0" layoutY="191.0" onMouseClicked="#switchSceneFav" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="iForum" fitHeight="54.0" fitWidth="68.0" layoutX="2.0" layoutY="188.0" onMouseClicked="#switchSceneForum" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../Cavani%2321/CPUT/second%20year/PRT/pngtree-vector-cloud-icon-png-image_939423.jpg" />
+                  <Image url="@../resources/forum.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="iForum" fitHeight="54.0" fitWidth="68.0" layoutX="2.0" layoutY="288.0" onMouseClicked="#switchSceneForum" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../Cavani%2321/CPUT/second%20year/PRT/pngtree-vector-cloud-icon-png-image_939423.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="iEvents" fitHeight="54.0" fitWidth="68.0" layoutX="2.0" layoutY="365.0" onMouseClicked="#switchSceneNews" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../Cavani%2321/CPUT/second%20year/PRT/pngtree-vector-cloud-icon-png-image_939423.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="iNews" fitHeight="54.0" fitWidth="68.0" layoutX="2.0" layoutY="457.0" onMouseClicked="#switchSceneNews" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../Cavani%2321/CPUT/second%20year/PRT/pngtree-vector-cloud-icon-png-image_939423.jpg" />
-               </image>
-            </ImageView>
+            <Button layoutX="9.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchSceneDarkHome" style="-fx-background-color: #202b3c;" text="Dark" textFill="WHITE" />
          </children>
       </Pane>
-      <Button fx:id="btnMetric" layoutX="854.0" layoutY="48.0" mnemonicParsing="false" onAction="#metric" style="-fx-background-color: #2b93f3;" text="metric" textFill="WHITE" />
-      <Button fx:id="btnImperial" layoutX="967.0" layoutY="48.0" mnemonicParsing="false" onAction="#imperial" style="-fx-background-color: #2b93f3;" text="imperial" textFill="WHITE" />
-      <Button fx:id="btnStandard" layoutX="904.0" layoutY="48.0" mnemonicParsing="false" onAction="#standard" style="-fx-background-color: #2b93f3;" text="standard" textFill="WHITE" />
-      <Button layoutX="1098.0" layoutY="48.0" mnemonicParsing="false" onAction="#switchSceneDarkHome" style="-fx-background-color: #202b3c;" text="Dark Mode" textFill="WHITE" />
-      <ImageView fitHeight="70.0" fitWidth="234.0" layoutX="25.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="btnMetric" layoutX="1066.0" layoutY="32.0" mnemonicParsing="false" onAction="#metric" style="-fx-background-color: #2b93f3;" text="metric" textFill="WHITE" />
+      <Button fx:id="btnImperial" layoutX="1179.0" layoutY="32.0" mnemonicParsing="false" onAction="#imperial" style="-fx-background-color: #2b93f3;" text="imperial" textFill="WHITE" />
+      <Button fx:id="btnStandard" layoutX="1116.0" layoutY="32.0" mnemonicParsing="false" onAction="#standard" style="-fx-background-color: #2b93f3;" text="standard" textFill="WHITE" />
+      <ImageView fx:id="logo" fitHeight="117.0" fitWidth="386.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../resources/resizedTransparentLogo1.png" />
+            <Image url="@../resources/transparentLogoWhite.png" />
          </image>
       </ImageView>
    </children>
