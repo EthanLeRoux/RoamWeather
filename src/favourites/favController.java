@@ -58,6 +58,15 @@ public class favController {
         return null;
     }
     
+     public void initialize() throws SQLException{
+        read();
+        
+        if(City_List.getItems().isEmpty()){
+            PopUpMessage pum = new PopUpMessage();
+            pum.showInformationDialog("Empty Favourites List", "Add to favorites", "Your favourites list is empty. Search for a city and add it to your list!");
+        }
+    }
+     
     public void add() throws FileNotFoundException,IOException,SQLException {
       FileReader  fr = new FileReader("user.txt");
        BufferedReader br = new BufferedReader(fr);
@@ -147,7 +156,7 @@ public class favController {
     
     public int extractFaveIdFromString(String favString) {
     // Find the start index of "favId="
-    String favIdPrefix = "favId=";
+    String favIdPrefix = "FAV";
     int startIndex = favString.indexOf(favIdPrefix);
 
     if (startIndex == -1) {
@@ -155,7 +164,7 @@ public class favController {
     }
 
     // Find the end index of the favId
-    int endIndex = favString.indexOf('}', startIndex);
+    int endIndex = favString.indexOf(' ', startIndex);
     if (endIndex == -1) {
         endIndex = favString.length(); // In case there's no closing brace
     }

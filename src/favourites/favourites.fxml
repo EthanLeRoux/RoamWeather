@@ -12,9 +12,8 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1b7cd7;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="favourites.favController">
    <children>
       <ListView id="City_List" fx:id="City_List" layoutX="33.0" layoutY="114.0" prefHeight="217.0" prefWidth="531.0" />
-      <Button id="readBtn" layoutX="486.0" layoutY="343.0" mnemonicParsing="false" onAction="#read" prefHeight="43.0" prefWidth="78.0" style="-fx-background-color: #216eb5;" text="READ" textFill="WHITE" />
-      <Button id="updateBtn" layoutX="360.0" layoutY="343.0" mnemonicParsing="false" onAction="#update" prefHeight="43.0" prefWidth="78.0" style="-fx-background-color: #216eb5;" text="UPDATE" textFill="WHITE" />
-      <Button id="deleteBtn" layoutX="201.0" layoutY="343.0" mnemonicParsing="false" onAction="#delete" prefHeight="43.0" prefWidth="78.0" style="-fx-background-color: #216eb5;" text="DELETE" textFill="WHITE" />
+      <Button id="updateBtn" layoutX="486.0" layoutY="343.0" mnemonicParsing="false" onAction="#update" prefHeight="43.0" prefWidth="78.0" style="-fx-background-color: #216eb5;" text="UPDATE" textFill="WHITE" />
+      <Button id="deleteBtn" layoutX="281.0" layoutY="343.0" mnemonicParsing="false" onAction="#delete" prefHeight="43.0" prefWidth="78.0" style="-fx-background-color: #216eb5;" text="DELETE" textFill="WHITE" />
       <Button id="addBtn" layoutX="36.0" layoutY="343.0" mnemonicParsing="false" onAction="#add" prefHeight="43.0" prefWidth="78.0" style="-fx-background-color: #216eb5;" text="ADD" textFill="WHITE" />
       <TextField id="searchTxt" fx:id="searchTxt" layoutX="240.0" layoutY="54.0" prefHeight="35.0" prefWidth="159.0" promptText="search city" />
       <Label fx:id="lblFav" alignment="CENTER" layoutX="230.0" layoutY="14.0" prefHeight="35.0" prefWidth="141.0" text="Favourites">

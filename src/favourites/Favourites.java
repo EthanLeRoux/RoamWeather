@@ -50,7 +50,10 @@ public class Favourites {
 
     @Override
     public String toString() {
-        return city_name;
+        return "FAV" + favId +" \n " + city_name;
     }
     
+        public String toStringAlt() {
+        return city_name;
+    }
 }
