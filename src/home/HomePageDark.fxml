@@ -196,7 +196,7 @@
                   <Image url="@../resources/forum.png" />
                </image>
             </ImageView>
-            <Button layoutX="9.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchSceneDarkHome" style="-fx-background-color: #2b93f3;" text="Light" textFill="WHITE" />
+            <Button layoutX="9.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchSceneLightHome" style="-fx-background-color: #2b93f3;" text="Light" textFill="WHITE" />
          </children>
       </Pane>
       <Button fx:id="btnMetric" layoutX="1066.0" layoutY="32.0" mnemonicParsing="false" onAction="#metric" style="-fx-background-color: #202b3c;" text="metric" textFill="WHITE" />

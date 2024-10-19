@@ -186,6 +186,12 @@ public class favController {
         //rs.switchScene("simepleposts/scnPosts.fxml");
         rs.switchScene("/home/HomePage.fxml");
     }
+    @FXML
+    public void switchSceneHomed() throws IOException{
+        RunSimpleUsers rs = new RunSimpleUsers();
+        //rs.switchScene("simepleposts/scnPosts.fxml");
+        rs.switchScene("/home/HomePageDark.fxml");
+    }
 
 }
     

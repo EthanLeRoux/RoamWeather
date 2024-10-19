@@ -245,5 +245,9 @@ public void switchSceneHome() throws IOException{
         RunSimpleUsers rs = new RunSimpleUsers();
         rs.switchScene("/home/HomePage.fxml");
     }
+public void switchSceneHomed() throws IOException{
+        RunSimpleUsers rs = new RunSimpleUsers();
+        rs.switchScene("/home/HomePageDark.fxml");
+    }
 
 } 

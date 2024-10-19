@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2b93f3;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="simpleposts.PostController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1b7cd7;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="simpleposts.PostController">
    <children>
-      <Button fx:id="btnPost" layoutX="498.0" layoutY="319.0" mnemonicParsing="false" onAction="#addPost" prefHeight="69.0" prefWidth="79.0" text="POST">
+      <Button fx:id="btnPost" layoutX="498.0" layoutY="319.0" mnemonicParsing="false" onAction="#addPost" prefHeight="69.0" prefWidth="79.0" style="-fx-background-color: #2b93f3;" stylesheets="@PostStyles.css" text="POST">
          <font>
             <Font size="17.0" />
          </font></Button>
@@ -23,9 +23,10 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Button fx:id="btnUpdatePost" layoutX="15.0" layoutY="286.0" mnemonicParsing="false" onAction="#updatePost" prefHeight="25.0" prefWidth="65.0" text="UPDATE" />
-      <Button fx:id="btnDeletePost" layoutX="94.0" layoutY="286.0" mnemonicParsing="false" onAction="#deletePost" prefHeight="25.0" prefWidth="65.0" text="DELETE" />
-      <ImageView fx:id="btnHome" fitHeight="55.0" fitWidth="55.0" onMouseClicked="#switchSceneHome" pickOnBounds="true" preserveRatio="true">
+     
+      <Button fx:id="btnUpdatePost" layoutX="15.0" layoutY="286.0" mnemonicParsing="false" onAction="#updatePost" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #2b93f3;" text="UPDATE" />
+      <Button fx:id="btnDeletePost" layoutX="94.0" layoutY="286.0" mnemonicParsing="false" onAction="#deletePost" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #2b93f3;" text="DELETE" />
+      <ImageView fx:id="btnHome" fitHeight="27.0" fitWidth="37.0" layoutX="20.0" layoutY="21.0" onMouseClicked="#switchSceneHome" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/back1.png" />
          </image>
