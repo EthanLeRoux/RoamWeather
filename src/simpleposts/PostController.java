@@ -85,16 +85,16 @@ public void showPosts() throws SQLException {
         listPosts.getItems().clear(); // Clear existing items
         
         for (Post post : posts) {
-            //listPosts.getItems().add(post.toStringForListView());
-            String postUsername = udao.getUserName(post.getPostUserId());
-            post.setPostUserName(postUsername);
-            
-            if(post.getUpdatedAt()!=null){
-                listPosts.getItems().add(post.toStringWithUserName() + "\n" +"Edited At: "+post.getUpdatedAt());
-            }
-            
-            listPosts.getItems().add(post.toStringWithUserName() + "\n" +post.getCreatedAt());
-        }
+    String postUsername = udao.getUserName(post.getPostUserId());
+    post.setPostUserName(postUsername);
+    
+    // Check if the post has been updated
+    if(post.getUpdatedAt()!=null){
+        listPosts.getItems().add(post.toStringWithUserName() + "\nEdited At: " + post.getUpdatedAt());
+    } else {
+        listPosts.getItems().add(post.toStringWithUserName() + "\nCreated At: " + post.getCreatedAt());
+    }
+}
     }
     
     

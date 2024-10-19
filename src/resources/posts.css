@@ -1,0 +1,73 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 20 Oct 2024, 00:20:37
+    Author     : ethan
+*/
+/* Style for all labels inside scnPosts */
+#scnPosts Label {
+    -fx-text-fill: white; /* Text color to contrast with the blue background */
+    -fx-font-size: 14px; /* Adjust font size */
+    -fx-font-weight: bold; /* Make the text bold */
+}
+
+/* Style for buttons inside scnPosts */
+#scnPosts Button {
+    -fx-background-color: #4dafff; /* Lighter shade of blue for buttons */
+    -fx-text-fill: white; /* White text */
+    -fx-background-radius: 5; /* Slightly rounded corners */
+    -fx-padding: 5 10; /* Padding for a clean look */
+    -fx-cursor: hand; /* Cursor changes to hand when hovering */
+}
+
+#scnPosts Button:hover {
+    -fx-background-color: #66bbff; /* Slightly brighter on hover */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 5, 0, 0, 3); /* Adds a subtle shadow on hover */
+}
+
+/* Style for text fields inside scnPosts */
+#scnPosts TextField {
+    -fx-background-color: #ffffff; /* White background for text fields */
+    -fx-text-fill: #333333; /* Dark text */
+    -fx-border-color: #4dafff; /* Blue border */
+    -fx-border-radius: 5; /* Rounded borders */
+    -fx-background-radius: 5; /* Matches the rounded borders */
+    -fx-padding: 5; /* Internal padding */
+}
+
+/* Style for combo boxes inside scnPosts */
+#scnPosts ComboBox {
+    -fx-background-color: #ffffff; /* White background */
+    -fx-border-color: #4dafff; /* Blue border */
+    -fx-border-radius: 5; /* Rounded borders */
+    -fx-background-radius: 5; /* Rounded background */
+    -fx-text-fill: #333333; /* Dark text */
+}
+
+/* Style for lists inside scnPosts */
+#scnPosts ListView {
+    -fx-background-color: #e1f2ff; /* Light blue background for list view */
+    -fx-border-radius: 5; /* Rounded corners */
+    -fx-background-radius: 5;
+}
+
+/* Style for any text inside lists */
+#scnPosts ListView .text {
+    -fx-fill: #2b93f3; /* Blue text for list items */
+    -fx-font-size: 13px;
+}
+
+/* Optional scroll bar styling */
+#scnPosts ScrollBar {
+    -fx-background-color: #4dafff; /* Blue background for scroll bar */
+    -fx-background-radius: 5; /* Rounded scroll bar */
+}
+
+/* Optional separator styling */
+#scnPosts Separator {
+    -fx-background-color: #ffffff; /* White separator lines */
+    -fx-padding: 5 0; /* Adds padding */
+}
+

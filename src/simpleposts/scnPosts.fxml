@@ -10,22 +10,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="simpleposts.PostController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2b93f3;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="simpleposts.PostController">
    <children>
-      <Button fx:id="btnPost" layoutX="498.0" layoutY="319.0" mnemonicParsing="false" onAction="#addPost" prefHeight="69.0" prefWidth="79.0" stylesheets="@PostStyles.css" text="POST">
+      <Button fx:id="btnPost" layoutX="498.0" layoutY="319.0" mnemonicParsing="false" onAction="#addPost" prefHeight="69.0" prefWidth="79.0" text="POST">
          <font>
             <Font size="17.0" />
          </font></Button>
       <TextArea fx:id="txtPost" layoutX="14.0" layoutY="319.0" prefHeight="69.0" prefWidth="479.0" />
       <ListView fx:id="listPosts" layoutX="14.0" layoutY="57.0" prefHeight="214.0" prefWidth="567.0" stylesheets="@../resources/PostStyles.css" />
-      <Label fx:id="lblPosts" layoutX="261.0" layoutY="21.0" prefHeight="35.0" prefWidth="79.0" text="Forum">
+      <Label fx:id="lblPosts" layoutX="261.0" layoutY="21.0" prefHeight="35.0" prefWidth="79.0" text="Forum" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font size="36.0" />
          </font>
       </Label>
       <Button fx:id="btnUpdatePost" layoutX="15.0" layoutY="286.0" mnemonicParsing="false" onAction="#updatePost" prefHeight="25.0" prefWidth="65.0" text="UPDATE" />
       <Button fx:id="btnDeletePost" layoutX="94.0" layoutY="286.0" mnemonicParsing="false" onAction="#deletePost" prefHeight="25.0" prefWidth="65.0" text="DELETE" />
-      <ImageView fx:id="btnHome" fitHeight="27.0" fitWidth="37.0" layoutX="20.0" layoutY="21.0" onMouseClicked="#switchSceneHome" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="btnHome" fitHeight="55.0" fitWidth="55.0" onMouseClicked="#switchSceneHome" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/back1.png" />
          </image>
@@ -34,5 +34,7 @@
    <stylesheets>
       <URL value="@../resources/HamburgerMenuStyles.css" />
       <URL value="@../resources/PostStyles.css" />
+      <URL value="@../resources/posts.css" />
+      <URL value="@../resources/posts.css" />
    </stylesheets>
 </AnchorPane>
