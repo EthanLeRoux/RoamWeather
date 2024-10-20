@@ -9,22 +9,28 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="simpleusers.LoginController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1b7cd7;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="simpleusers.LoginController">
    <children>
-      <TextField fx:id="txtLoginEmail" layoutX="364.0" layoutY="153.0" prefHeight="17.0" prefWidth="221.0" />
-      <Label fx:id="lblEmail" layoutX="310.0" layoutY="157.0" text="Username" />
-      <Label fx:id="lblPassword" layoutX="300.0" layoutY="249.0" text="Password" />
-      <Button fx:id="btnLogin" layoutX="429.0" layoutY="341.0" mnemonicParsing="false" onAction="#loginUser" prefHeight="32.0" prefWidth="64.0" style="-fx-background-color: #214969;" text="Login" textFill="WHITE" wrapText="true">
+      <TextField fx:id="txtLoginEmail" layoutX="390.0" layoutY="153.0" prefHeight="25.0" prefWidth="195.0" />
+      <Label fx:id="lblEmail" layoutX="308.0" layoutY="152.0" text="Username" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label fx:id="lblPassword" layoutX="310.0" layoutY="236.0" text="Password" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Button fx:id="btnLogin" layoutX="429.0" layoutY="341.0" mnemonicParsing="false" onAction="#loginUser" prefHeight="32.0" prefWidth="64.0" style="-fx-background-color: #2b93f3;" text="Login" textFill="WHITE" wrapText="true">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Label fx:id="lblNoAccountSignUp" layoutX="402.0" layoutY="288.0" onMouseClicked="#switchSceneSignup" text="No Account? Sign Up" textFill="#1a8be1" underline="true" />
-      <Label fx:id="lblForgotPassword" layoutX="404.0" layoutY="315.0" onMouseClicked="#switchSceneForgotPassword" text="Forgot Password?" textFill="#1a8be1" underline="true" />
+      <Label fx:id="lblNoAccountSignUp" layoutX="402.0" layoutY="288.0" onMouseClicked="#switchSceneSignup" text="No Account? Sign Up" textFill="#214969" underline="true" />
+      <Label fx:id="lblForgotPassword" layoutX="404.0" layoutY="315.0" onMouseClicked="#switchSceneForgotPassword" text="Forgot Password?" textFill="#214969" underline="true" />
       <ImageView id="img" fx:id="img" fitHeight="408.0" fitWidth="304.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/bg.jpg" />
          </image>
       </ImageView>
-      <PasswordField fx:id="txtLoginPassword" layoutX="364.0" layoutY="237.0" prefHeight="25.0" prefWidth="221.0" />
+      <PasswordField fx:id="txtLoginPassword" layoutX="390.0" layoutY="237.0" prefHeight="25.0" prefWidth="195.0" />
    </children>
 </AnchorPane>
