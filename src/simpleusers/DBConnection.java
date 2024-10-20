@@ -16,9 +16,9 @@ public class DBConnection {
     private Connection dbconn = null;
         
         public Connection getConn()throws SQLException{
-            String dbUrl = "jdbc:derby://localhost:1527/wrapp";
-            String dbUser ="root";
-            String dbPass = "root";
+            String dbUrl = "jdbc:mysql://sql5.freemysqlhosting.net:3306/sql5739430";
+            String dbUser ="sql5739430";
+            String dbPass = "SpCbwhv7en";
             dbconn = DriverManager.getConnection(dbUrl, dbUser, dbPass);
             return dbconn;
         }

@@ -41,7 +41,7 @@ public class DbDAO {
     String key = tfa.generateSecretKey();
     
     // Prepare the SQL insert statement with the secret key included
-    String insert_user_stmt = "INSERT INTO users (user_email, user_name, user_password, user_key) VALUES (?, ?, ?, ?)";
+    String insert_user_stmt = "INSERT INTO USERS (user_email, user_name, user_password, user_key) VALUES (?, ?, ?, ?)";
     
     // Use PreparedStatement to prevent SQL injection and safely insert data
     PreparedStatement pstmt = conn.getConn().prepareStatement(insert_user_stmt);
@@ -140,7 +140,7 @@ public class DbDAO {
     }
     
     public String getUserName(int userId) throws SQLException {
-    String sql = "SELECT user_name FROM users WHERE user_id = " + userId;
+    String sql = "SELECT user_name FROM USERS WHERE user_id = " + userId;
     String username = null;
     conn = new DBConnection();
     Statement stmt = conn.getConn().createStatement();
@@ -155,7 +155,7 @@ public class DbDAO {
 } 
     
     public int getUserId(String email) throws SQLException {
-    String sql = "SELECT user_id FROM users WHERE user_email = ?";
+    String sql = "SELECT user_id FROM USERS WHERE user_email = ?";
     int userId = -1;  // Initialize to -1 to indicate user not found
     conn = new DBConnection();
     PreparedStatement pstmt = conn.getConn().prepareStatement(sql);
@@ -172,7 +172,7 @@ public class DbDAO {
 }
 
     public String getUserKey(int userId) throws SQLException {
-    String sql = "SELECT user_key FROM users WHERE user_id = " + userId;
+    String sql = "SELECT user_key FROM USERS WHERE user_id = " + userId;
     String userKey = null;
     conn = new DBConnection();
     Statement stmt = conn.getConn().createStatement();
@@ -224,7 +224,7 @@ public void updateUserPassword(int userId, String newPassword) throws SQLExcepti
     conn = new DBConnection();
     
     // SQL update statement to change the user's password based on user_id
-    String update_password_stmt = "UPDATE users SET user_password = ? WHERE user_id = ?";
+    String update_password_stmt = "UPDATE USERS SET user_password = ? WHERE user_id = ?";
     
     // Use PreparedStatement to safely update the password
     PreparedStatement pstmt = conn.getConn().prepareStatement(update_password_stmt);
@@ -246,7 +246,7 @@ public String getUserEmailById(int userId) throws SQLException {
     String userEmail = null;  // Initialize variable to hold the email
 
     // SQL select statement to retrieve the user's email based on user_id
-    String select_email_stmt = "SELECT user_email FROM users WHERE user_id = ?";
+    String select_email_stmt = "SELECT user_email FROM USERS WHERE user_id = ?";
     
     // Use PreparedStatement to safely execute the query
     PreparedStatement pstmt = conn.getConn().prepareStatement(select_email_stmt);
@@ -271,7 +271,7 @@ public void deleteUser(int userId) throws SQLException {
     conn = new DBConnection();
     
     // SQL delete statement to remove the user based on user_id
-    String delete_user_stmt = "DELETE FROM users WHERE user_id = ?";
+    String delete_user_stmt = "DELETE FROM USERS WHERE user_id = ?";
     
     // Use PreparedStatement to safely delete the user
     PreparedStatement pstmt = conn.getConn().prepareStatement(delete_user_stmt);
@@ -299,7 +299,7 @@ public void deleteUserById(int userId) throws SQLException {
         String deletePostsSQL = "DELETE FROM posts WHERE user_id = ?";
         String deleteFavouritesSQL = "DELETE FROM favourites WHERE user_id = ?";
         String deleteSettingsSQL = "DELETE FROM settings WHERE user_id = ?";
-        String deleteUserSQL = "DELETE FROM users WHERE user_id = ?";
+        String deleteUserSQL = "DELETE FROM USERS WHERE user_id = ?";
 
         // Delete from dependent tables first
              PreparedStatement deleteReviewsStmt = conn.getConn().prepareStatement(deleteReviewsSQL);
