@@ -23,16 +23,7 @@ import simpleusers.User;
 public class DbDAO {
         private DBConnection conn;
         TwoFactorAuth tfa;
-        
-//    public void insertUser(User user) throws SQLException{
-//        conn = new DBConnection();
-//        tfa = new TwoFactorAuth();
-//        String key = tfa.generateSecretKey();
-//        String insert_post_stmt = "INSERT INTO users (user_email, user_name, user_password) VALUES ('"+ user.getUserEmail()+"', '" + user.getUserName()+"', '"+user.getUserPassword()+"')";
-//        Statement stmt = conn.getConn().createStatement();
-//        stmt.execute(insert_post_stmt);
-//    }
-        
+
         public void insertUser(User user) throws SQLException {
     conn = new DBConnection();
     tfa = new TwoFactorAuth();

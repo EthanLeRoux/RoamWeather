@@ -109,17 +109,7 @@ public class CrudOperator {
             }
         } //end of finnaly
     } // end of method
-    
-//    public void updateFave(int faveId, String cityName) throws SQLException {
-//        cityName = cityName.replace("'", "''");
-//        String updateString = "UPDATE Favourites SET City_Name = ? WHERE User_id = ?";
-//        PreparedStatement pstmt = conn.prepareStatement(updateString);
-//        pstmt.setString(1, cityName);
-//        pstmt.setInt(2, faveId);
-//            
-//        pstmt.executeUpdate();
-//    }
-    
+
     public void updateFave(int faveId, String cityName) throws SQLException {
     cityName = cityName.replace("'", "''");
     String updateString = "UPDATE Favourites SET City_Name = ? WHERE FAVOURITE_ID = ?";
@@ -171,75 +161,4 @@ public class CrudOperator {
         }
         return favs;
     }
-   
-   
-//    
-//     public List<Favourites> read() {
-//        List<Favourites> favs = new ArrayList<>();
-//        String sql = "SELECT * FROM Favourites";
-//        ResultSet rs = null;
-//
-//        try {
-//            pstmt = conn.prepareStatement(sql);
-//            rs = pstmt.executeQuery();
-//
-//            while (rs.next()) {
-//                //java.sql.Timestamp createdAt = rs.getTimestamp("city_added_at");
-//                //String createdAtStr;
-////                if (createdAt != null) {
-////                    createdAtStr = createdAt.toString();
-////                } else {
-////                    createdAtStr = null;
-////                }
-//                String cityName = rs.getString("City_name");
-//                int userId = rs.getInt("User_id");
-//              
-//                favs.add(new Favourites(cityName, userId));
-//
-//            }
-//        } catch (SQLException sqlE) {
-//            JOptionPane.showMessageDialog(null, sqlE.getMessage());
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e.getMessage());
-//        } finally {
-//            try {
-//                if (rs != null) {
-//                    rs.close();
-//                }
-//                if (pstmt != null) {
-//                    pstmt.close();
-//                }
-//            } catch (Exception exception) {
-//                JOptionPane.showMessageDialog(null, exception.getMessage(), "Warning", JOptionPane.ERROR_MESSAGE);
-//            }
-//        }
-//        return favs;
-//    }
-//    
-    
-//  public void removeFavourite(int Favorites_Id) throws SQLException {
-//        String deleteString = "DELETE FROM Favourites Where user_id = Favourites_id values(?)";
-//
-//        try {
-//            int favID = 0;
-//            pstmt = conn.prepareStatement(deleteString);
-//            pstmt.setInt(1,favID);
-//            pstmt.executeUpdate();
-//            System.out.println("Favourite deleted successfully.");
-//        } catch (SQLException e) {
-//            System.out.println("SQL Error: " + e.getMessage());
-//        } finally {
-//            if (pstmt != null) {
-//                try {
-//                    pstmt.close();
-//                } catch (SQLException e) {
-//                    System.out.println("Error closing PreparedStatement: " + e.getMessage());
-//                } catch (Exception exception) {
-//                    JOptionPane.showMessageDialog(null, exception.getMessage(), "Warning", JOptionPane.ERROR_MESSAGE);
-//                }
-//            }
-//        }
-//
-//    }
-    
 }

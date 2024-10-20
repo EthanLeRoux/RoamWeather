@@ -5,7 +5,7 @@
 package simpleusers;
 
 import com.password4j.Password;
-import favouritesOriginal.PopUpMessages;
+import simpleposts.PopUpMessage;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -66,22 +66,10 @@ public class SignUpController {
     @FXML
     Label favLabel;
 
-    PopUpMessages popUps = new PopUpMessages();
+    PopUpMessage popUps = new PopUpMessage();
 
     public void initialize() {
-        // Load the GIF image from resources
-        //Image image = new Image("file:/C:/Users/Bruneez/OneDrive/M%20y%20website/OneDrive/Documents/NetBeansProjects/Weather/weather.jpg");
-
-        // Set the GIF image to the ImageView
-        //img.setImage(image);
-        // TranslateGeneral tg = new TranslateGeneral();
-        // Translate Labels and Buttons to Dutch
-//        lblEmail.setText(tg.translate(Language.DUTCH, lblEmail.getText()));
-//        lblUsername.setText(tg.translate(Language.DUTCH, lblUsername.getText()));
-//        lblPassword.setText(tg.translate(Language.DUTCH, lblPassword.getText()));
-//        lblSignUp.setText(tg.translate(Language.DUTCH, lblSignUp.getText()));
-//        lblAlreadyHaveAccount.setText(tg.translate(Language.DUTCH, lblAlreadyHaveAccount.getText()));
-//        btnSignUp.setText(tg.translate(Language.DUTCH, btnSignUp.getText()));
+        
     }
 
     public void createUser() throws SQLException, IOException {

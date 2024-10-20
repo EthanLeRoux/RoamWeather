@@ -128,32 +128,6 @@ public class favController {
         read();
     }
     
-//    public int extractFaveIdFromString(String faveString) {
-//    
-//    String faveIdPrefix = "favId";
-//    int startIndex = faveString.indexOf(faveIdPrefix);
-//    
-//    if (startIndex == -1) {
-//        throw new IllegalArgumentException("Post string does not contain 'Favorite ID: '");
-//    }
-//
-//    // Find the end index of the fave ID
-//    int endIndex = faveString.indexOf('\n', startIndex);
-//    if (endIndex == -1) {
-//        endIndex = faveString.length(); // In case there's no newline at the end
-//    }
-//
-//    // Extract the fave ID substring
-//    String faveIdString = faveString.substring(startIndex + faveIdPrefix.length(), endIndex).trim();
-//
-//    // Parse the fave ID to integer
-//    try {
-//        return Integer.parseInt(faveIdString);
-//    } catch (NumberFormatException e) {
-//        throw new IllegalArgumentException("Post ID is not a valid integer", e);
-//    }
-//}
-    
     public int extractFaveIdFromString(String favString) {
     // Find the start index of "favId="
     String favIdPrefix = "FAV";
