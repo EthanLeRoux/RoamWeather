@@ -144,35 +144,60 @@ private void showErrorPopup(String errorMessage) {
         return userId;
     }
 
-    public void deleteReview() throws SQLException {
+    public void deleteReview() throws SQLException, IOException {
         dao = new ReviewDAO();
-        Review newReview = fromString(listReviews.getSelectionModel().getSelectedItem().toString());
-        int revId = dao.getReviewId(newReview.getUserId(), newReview.getReviewContent());
+        pum = new PopUpMessage();
+//        Review newReview = fromString(listReviews.getSelectionModel().getSelectedItem().toString());
+        String str = listReviews.getSelectionModel().getSelectedItem().toString();
+//        System.out.println(str);
+        Review rev = this.parseReviewString(str);
+        int revId = dao.getReviewId(rev.getUserId(), rev.getReviewContent());
         System.out.println(revId);
-        //dao.deleteReview(selectedReviewId);
+//        System.out.println(newReview.toString());
+        pum.showConfirmationDialog("Review Deletion", "Deletion Confirmation", "Are you sure you want to delete this review?");
         dao.deleteReview(revId);
+//        dao.deleteReview(revId);
         getAll();
-        System.out.println("Review deleted!");
+//        System.out.println("Review deleted!");
         //refreshReviews(); // Assuming you have a method to refresh the ListView
     }
 
     public void showReviews() {
 
     }
+    
+    public Review parseReviewString(String reviewString) throws IOException {
+    // Split the string by lines
+    String[] lines = reviewString.split("\n");
 
-    public void updateReview() throws SQLException {
-        dao = new ReviewDAO();
+    // Extract cityName from the first line (after "City:")
+    String cityName = lines[0].substring(lines[0].indexOf("City:") + 6).trim();
 
-        // Get the selected review from the ListView
+    // Extract reviewContent from the second line
+    String reviewContent = lines[1].trim();
+
+    // Extract reviewRating from the third line (after "Rating:")
+    int reviewRating = Integer.parseInt(lines[2].substring(lines[2].indexOf("Rating:") + 8).trim());
+
+    int userid = this.getUserId();
+    // Create and return a new Review object
+    return new Review(userid, cityName, reviewContent, reviewRating);
+}
+
+    public void updateReview() throws SQLException, IOException {
+         dao = new ReviewDAO();
+        pum = new PopUpMessage();
+//        Review newReview = fromString(listReviews.getSelectionModel().getSelectedItem().toString());
         String selectedItem = listReviews.getSelectionModel().getSelectedItem().toString();
+//        System.out.println(str);
+        
+        
 
         // Check if an item is selected
         if (selectedItem != null && !selectedItem.isEmpty()) {
-            // Parse the selected review string to a Review object
-            Review newReview = fromString(selectedItem);
-
-            // Retrieve the review ID using the Review object
-            int revId = dao.getReviewId(newReview.getUserId(), newReview.getReviewContent());
+            pum.showConfirmationDialog("Review Update", "Update Confirmation", "Are you sure you want to edit this review?");
+            Review rev = this.parseReviewString(selectedItem);
+            int revId = dao.getReviewId(rev.getUserId(), rev.getReviewContent());
 
             // Get updated values from the input fields
             String newContent = txtReview.getText();
@@ -185,8 +210,10 @@ private void showErrorPopup(String errorMessage) {
             // Refresh the ListView
             getAll();
 
+            pum.showInformationDialog("Successful Update", "Update Successful", "Review updated.");
             System.out.println("Review updated!");
         } else {
+            pum.showErrorDialog("Select Review", "Error Selection", "No review selected.");
             System.out.println("No review selected!");
             // Optionally, show an alert to the user
         }

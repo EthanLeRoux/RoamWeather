@@ -72,7 +72,7 @@ public class Review {
     @Override
     public String toString() {
         return 
-               "  City: " + cityName + ",\n" +   
+               "  City: " + cityName + "\n" +   
                 "  "+reviewContent + "\n" +
                "  Rating: " + reviewRating + "\n" 
                ;
