@@ -72,7 +72,7 @@
       </Pane>
       <Pane layoutX="788.0" layoutY="81.0" prefHeight="260.0" prefWidth="385.0" style="-fx-background-color: #2b93f3; -fx-background-radius: 10;">
          <children>
-            <Button fx:id="btnAddReview" layoutX="163.0" layoutY="219.0" mnemonicParsing="false" onAction="#switchSceneRev" text="add review" />
+            <Button fx:id="btnAddReview" layoutX="163.0" layoutY="219.0" mnemonicParsing="false" onAction="#switchSceneRev" style="-fx-background-color: #1b7cd7;" text="add review" />
             <ListView fx:id="listReviews" layoutX="17.0" layoutY="44.0" prefHeight="170.0" prefWidth="353.0" style="-fx-background-color: white; -fx-background-radius: 10;" />
             <Label fx:id="lblCityReview" layoutX="17.0" layoutY="14.0" text="City Review" textFill="WHITE">
                <font>
